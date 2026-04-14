@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Não Encontrada</title>
+    <script>
+        // Redireciona rotas não encontradas para a página correta
+        // Isso resolve o problema de 404 no GitHub Pages com navegação SPA
+        (function() {
+            // Pega o caminho da URL
+            const path = window.location.pathname;
+            
+            // Remove o nome do repositório do caminho se existir
+            const pathWithoutRepo = path.replace('/vz_store', '');
+            
+            // Lista de páginas válidas
+            const validPages = [
+                '/paginas/index.html',
+                '/paginas/catalogo.html',
+                '/paginas/sobre.html',
+                '/paginas/contato.html',
+                '/paginas/acesso.html',
+                '/paginas/checkout.html',
+                '/paginas/cliente.html',
+                '/paginas/vendedora.html'
+            ];
+            
+            // Se o caminho termina com .html, tenta redirecionar se for uma página válida
+            if (pathWithoutRepo.includes('.html')) {
+                // Encontra a página correspondente
+                const targetPage = validPages.find(page => pathWithoutRepo.includes(page.split('/').pop()));
+                
+                if (targetPage) {
+                    window.location.replace(targetPage);
+                } else {
+                    // Se não encontrar, redireciona para o índice
+                    window.location.replace('/vz_store/paginas/index.html');
+                }
+            } else {
+                // Redireciona para o índice como fallback
+                window.location.replace('/vz_store/paginas/index.html');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <p>Redirecionando...</p>
+</body>
+</html>
