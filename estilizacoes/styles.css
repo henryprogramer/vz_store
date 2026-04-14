@@ -72,17 +72,19 @@ a {
     linear-gradient(180deg, #f8f0ea 0%, #f4ebe3 100%);
 }
 
-.topbar {
+..topbar {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 80;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: auto auto;
+  row-gap: 10px;
+  justify-items: stretch;
   align-items: center;
-  justify-content: space-between;
+  padding: 10px clamp(18px, 3.2vw, 52px) 8px;
   gap: clamp(12px, 2vw, 24px);
 
-  padding: 10px clamp(18px, 3.2vw, 52px) 8px;
-  
   background: #ffffff;
   border-bottom: 1px solid rgba(17, 17, 17, 0.08);
   backdrop-filter: none;
@@ -94,7 +96,24 @@ a {
   gap: 8px;
   min-width: fit-content;
   flex-shrink: 0;
+  grid-column: 3 / 4;
+  grid-row: 1;
+  justify-self: center;
 }
+
+.topbar__actions {
+  grid-column: 5 / 6;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.nav {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  justify-self: center;
+  align-self: start;
+}
+
 
 .brand {
   display: inline-flex;
@@ -5575,15 +5594,29 @@ body {
     display: inline-grid;
   }
 
+  .topbar {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+  }
+
+  .topbar__brand-group {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .topbar__actions {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    width: 100%;
+  }
+
   .nav {
+    grid-column: 1 / -1;
     justify-content: flex-start;
     gap: 18px;
     overflow-x: auto;
     padding-bottom: 4px;
-  }
-
-  .topbar__actions {
-    width: 100%;
   }
 
   .topbar .btn {
