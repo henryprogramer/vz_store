@@ -3363,10 +3363,14 @@ body.is-sidebar-open .portal-sidebar {
   display: block;
 }
 
-.profile-trigger {
-  padding-inline: 12px 14px;
+..profile-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   gap: 8px;
   min-width: 0;
+  line-height: 1;
+  padding: 0.15rem 0.25rem;
   will-change: transform;
 }
 
@@ -3374,11 +3378,13 @@ body.is-sidebar-open .portal-sidebar {
   width: 32px;
   height: 32px;
   font-size: 0.68rem;
+  border-radius: 50%;
 }
 
 .profile-trigger__label {
   font-size: 0.88rem;
   font-weight: 900;
+  white-space: nowrap;
 }
 
 .profile-trigger.is-active,
@@ -5859,12 +5865,13 @@ body {
 
   .topbar__actions [data-topbar-profile-slot],
   .topbar__actions .profile-trigger {
-    display: inline-grid !important;
-    place-items: center;
-    width: 48px;
-    height: 48px;
-    min-width: 48px;
-    min-height: 48px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    min-height: 42px;
     padding: 0;
     font-size: 0;
     border-radius: 50%;
@@ -5883,13 +5890,9 @@ body {
     object-fit: cover;
   }
 
+  .topbar__actions [data-topbar-profile-slot] span:not(.btn__icon),
   .topbar__actions .profile-trigger .profile-trigger__label {
     display: none !important;
-    width: 0;
-    height: 0;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
   }
 
   .nav {
@@ -6111,10 +6114,15 @@ body {
 
   .topbar__actions [data-topbar-profile-slot],
   .topbar__actions .profile-trigger {
-    width: 46px;
-    height: 46px;
-    min-width: 46px;
-    min-height: 46px;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    min-height: 42px;
+  }
+
+  .topbar__actions [data-topbar-profile-slot] span:not(.btn__icon),
+  .topbar__actions .profile-trigger .profile-trigger__label {
+    display: none !important;
   }
 
   .nav {
