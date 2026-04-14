@@ -690,6 +690,15 @@ class SiteHandler(SimpleHTTPRequestHandler):
 
         if path == "/":
             self.path = "/index.html"
+            super().do_GET()
+            return
+
+        if path.endswith(".html"):
+            target_path = self.translate_path(path)
+            if not os.path.exists(target_path):
+                fallback = self.translate_path(f"/paginas/{os.path.basename(path)}")
+                if os.path.exists(fallback):
+                    self.path = f"/paginas/{os.path.basename(path)}"
 
         super().do_GET()
 
