@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>VzSTORE | Moda Masculina</title>
+    <title>VzSTORE | Sobre a Loja</title>
     <meta
       name="description"
-      content="Landing page da VZ Store com hero inspirado em vitrine premium, catálogo em destaque e acesso por login."
+      content="Conheça a LOJA DO VZ, especializada em moda masculina de qualidade desde 2020."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,19 +17,19 @@
     <link rel="stylesheet" href="../estilizacoes/styles.css" />
   </head>
   <body>
-    <div class="page page--home">
+    <div class="page">
       <header class="topbar">
         <div class="topbar__brand-group">
-          <a class="brand" href="#inicio" aria-label="Página inicial">
+          <a class="brand" href="index.html" aria-label="Página inicial">
             <span class="brand__mark" aria-hidden="true"></span>
             <span class="brand__name">VzSTORE</span>
           </a>
         </div>
 
         <nav class="nav" aria-label="Navegação principal">
-          <a class="nav__link" href="#inicio" aria-current="page">Início</a>
+          <a class="nav__link" href="index.html#inicio">Início</a>
           <a class="nav__link" href="catalogo.html">Catálogo</a>
-          <a class="nav__link" href="sobre.html">Sobre</a>
+          <a class="nav__link" href="sobre.html" aria-current="page">Sobre</a>
           <a class="nav__link" href="contato.html">Contato</a>
         </nav>
 
@@ -59,106 +59,88 @@
       </header>
 
       <main class="main">
-        <section class="hero" id="inicio">
-          <section class="hero__copy" aria-labelledby="hero-title">
-            <p class="hero__eyebrow">Moda masculina</p>
-            <h1 id="hero-title">
-              Estilo,<br />
-              Qualidade,<br />
-              <span>SUA MARCA!</span>
-            </h1>
-            <p class="hero__lead">
-              Vista a paixão. Sinta o orgulho.<br />
-              Moda pra quem veste moda.
-            </p>
-
-            <div class="hero__actions">
-              <a class="btn btn--solid" href="catalogo.html">
-                <span class="btn__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 6h15l-1.5 9h-13z" />
-                    <path d="M6 6 5 3H2" />
-                    <circle cx="9" cy="20" r="1.5" />
-                    <circle cx="18" cy="20" r="1.5" />
-                  </svg>
-                </span>
-                <span>Ver Catálogo</span>
-              </a>
-
-              <a class="btn btn--light" href="#contato" data-whatsapp-link data-whatsapp-fallback="#contato">
-                <span class="btn__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20.5 13.5a8.5 8.5 0 1 1-7.2-8.4" />
-                    <path d="M14 4.5h5.5V10" />
-                    <path d="M14 10 19.5 4.5" />
-                  </svg>
-                </span>
-                <span>Chama no ZAP!</span>
-              </a>
+        <section class="section section--summary" id="sobre">
+          <div class="section__inner">
+            <div class="section__head section__head--stack">
+              <div>
+                <p class="section__eyebrow"><span class="section__dot" aria-hidden="true"></span>Sobre melhor</p>
+                <h1>LOJA DO VZ</h1>
+              </div>
+              <p class="section__lead">
+                Especializada em moda masculina de qualidade. Se vestir bem muda o jogo!
+              </p>
             </div>
 
-            <ul class="hero__benefits" aria-label="Benefícios principais">
-              <li>
-                <span class="benefit__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m12 2 2.7 5.5L20.5 8l-4.2 4.1L17.3 18 12 15.2 6.7 18l1-5.9L3.5 8l5.8-.5L12 2Z" />
-                  </svg>
-                </span>
-                <span class="benefit__text">
-                  <strong>Qualidade</strong>
-                  <small>Garantida</small>
-                </span>
-              </li>
-              <li>
-                <span class="benefit__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="4" y="9" width="16" height="10" rx="2" />
-                    <path d="M8 9V7a4 4 0 0 1 8 0v2" />
-                    <path d="M12 13v3" />
-                  </svg>
-                </span>
-                <span class="benefit__text">
-                  <strong>Compra</strong>
-                  <small>Segura</small>
-                </span>
-              </li>
-              <li>
-                <span class="benefit__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 13h11v5H3z" />
-                    <path d="M14 10h4l3 3v5h-7z" />
-                    <circle cx="7" cy="19" r="1.5" />
-                    <circle cx="18" cy="19" r="1.5" />
-                  </svg>
-                </span>
-                <span class="benefit__text">
-                  <strong>Envio para</strong>
-                  <small>todo o Brasil</small>
-                </span>
-              </li>
-            </ul>
-          </section>
+            <div class="summary-grid summary-grid--split">
+              <article class="summary-card summary-card--tall">
+                <div class="summary-card__top">
+                  <span class="summary-card__chip">Nossa história</span>
+                </div>
+                <h3>Nascemos do amor por moda</h3>
+                <p>
+                  A LOJA DO VZ foi criada para oferecer peças cuidadosamente selecionadas que vão além do comum. 
+                  Acreditamos que a moda conserta humores, ressignifica corpos e muda histórias.
+                </p>
+              </article>
 
-          <div class="hero__visual" aria-label="Foto da modelo em destaque">
-            <img
-              class="hero__model"
-              src="../imagens/modelo.png"
-              alt="Modelo masculino em destaque usando casaco preto e oculos escuros"
-            />
+              <article class="summary-card summary-card--tall">
+                <div class="summary-card__top">
+                  <span class="summary-card__chip">Nossa missão</span>
+                </div>
+                <h3>Qualidade e acessibilidade</h3>
+                <p>
+                  Oferecemos peças premium com preços justos. Cada item é pensado para homens que se cuidam 
+                  e sabem que roupa certa faz diferença no dia a dia.
+                </p>
+              </article>
+
+              <article class="summary-card summary-card--tall">
+                <div class="summary-card__top">
+                  <span class="summary-card__chip">Números</span>
+                </div>
+                <h3>Confiança em números</h3>
+                <p>
+                  🚀 +7.000 pedidos entregues<br>
+                  🇧🇷 Enviamos para todo Brasil<br>
+                  ⏳ Peças limitadas sempre<br>
+                  🔥 Se vestir bem muda o jogo
+                </p>
+              </article>
+
+              <article class="summary-card summary-card--tall">
+                <div class="summary-card__top">
+                  <span class="summary-card__chip">Compromisso</span>
+                </div>
+                <h3>Entrega rápida e segura</h3>
+                <p>
+                  Garantimos qualidade em cada peça e rapidez na entrega. Seu pedido é importante para nós 
+                  desde o click até chegar na sua porta.
+                </p>
+              </article>
+            </div>
           </div>
         </section>
 
-        <section class="section section--catalog" id="catalogo">
+        <section class="section section--cta" id="proximos-passos">
           <div class="section__inner">
-            <div class="section__head">
+            <div class="cta-banner">
               <div>
-                <p class="section__eyebrow"><span class="section__dot" aria-hidden="true"></span>Destaques</p>
-                <h2>Peças em destaque</h2>
+                <p class="section__eyebrow"><span class="section__dot" aria-hidden="true"></span>Próximos passos</p>
+                <h2>Pronto para se vestir bem?</h2>
+                <p>
+                  Explore nosso catálogo e encontre as peças que combinam com você. 
+                  Qualidade, estilo e confiança em cada compra.
+                </p>
               </div>
-              <a class="section__action" href="catalogo.html">Ver catálogo completo</a>
+              <div class="cta-banner__actions">
+                <a class="btn btn--solid" href="catalogo.html">
+                  Ver Catálogo Completo
+                </a>
+                <a class="btn btn--light" href="contato.html">
+                  Fale com a gente
+                </a>
+              </div>
             </div>
-
-            <div class="catalog-rail" aria-label="Produtos em destaque"></div>
           </div>
         </section>
       </main>
@@ -166,7 +148,7 @@
       <footer class="footer">
         <div class="footer__inner">
           <div class="footer__brand">
-            <a class="brand brand--footer" href="#inicio">
+            <a class="brand brand--footer" href="index.html">
               <span class="brand__mark" aria-hidden="true"></span>
               <span class="brand__name">VzSTORE</span>
             </a>
@@ -178,7 +160,7 @@
           <div class="footer__columns">
             <div class="footer__group">
               <h3>Atalhos</h3>
-              <a href="#inicio">
+              <a href="index.html#inicio">
                 <span class="footer-link__icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 11.5 12 5l8 6.5" />
@@ -188,7 +170,7 @@
                 </span>
                 <span>Início</span>
               </a>
-              <a href="#catalogo">
+              <a href="catalogo.html">
                 <span class="footer-link__icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 7.5 12 4l8 3.5v9L12 20l-8-3.5v-9Z" />
@@ -208,7 +190,7 @@
                 </span>
                 <span>Sobre</span>
               </a>
-              <a href="contato.html" data-whatsapp-link data-whatsapp-fallback="contato.html">
+              <a href="contato.html">
                 <span class="footer-link__icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4.5 6.5 8.5 4l2.4 3.9-1.7 1.6c1 2.1 2.6 3.7 4.7 4.7l1.6-1.7 3.9 2.4-2.5 4c-.4.7-1.2 1.1-2 1-6.6-.8-11.8-6-12.6-12.6-.1-.8.3-1.6 1-2Z" />
@@ -227,7 +209,7 @@
             <div class="footer__group">
               <h3>Acesso</h3>
               <a href="acesso.html">Login / cadastro</a>
-              <a href="#contato" data-whatsapp-link data-whatsapp-fallback="#contato">Falar com a loja</a>
+              <a href="contato.html">Falar com a loja</a>
               <p>WhatsApp: <a href="https://wa.me/5538999400164" target="_blank" rel="noopener noreferrer">+55 38 99940-0164</a><br>Instagram: <a href="https://www.instagram.com/vzstoreloja_/" target="_blank" rel="noopener noreferrer">@vzstoreloja_</a></p>
             </div>
           </div>

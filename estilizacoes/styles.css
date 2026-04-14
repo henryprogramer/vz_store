@@ -4378,7 +4378,6 @@ body.is-lightbox-open {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  align-items: flex-start;
 }
 
 .brand--footer {
@@ -5186,6 +5185,10 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.brand--footer {
+  margin-left: -80px;
 }
 
 .brand--footer .brand__mark {

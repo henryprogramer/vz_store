@@ -3245,7 +3245,7 @@
       return `
         <div class="empty-state">
           <h3>Sem pedidos ainda</h3>
-          <p>Finalize um carrinho para que o histórico da cliente apareça aqui.</p>
+          <p>Complete sua compra para que os pedidos apareçam aqui.</p>
         </div>
       `;
     }
@@ -4320,13 +4320,13 @@
     const currentPage = currentPageName();
     const profileTargetHref = isAdmin(currentUser)
       ? (currentPage === "vendedora.html" ? "#pedidos" : "vendedora.html")
-      : (currentPage === "cliente.html" ? "#carrinho" : "cliente.html");
+      : (currentPage === "cliente.html" ? "#carrinho" : "catalogo.html");
     const profileTargetLabel = isAdmin(currentUser)
       ? (currentPage === "vendedora.html" ? "Ver pedidos" : "Abrir painel interno")
-      : (currentPage === "cliente.html" ? "Abrir carrinho" : "Abrir minha área");
+      : (currentPage === "cliente.html" ? "Abrir carrinho" : "Ver catálogo");
     const profileTargetIcon = isAdmin(currentUser)
       ? (currentPage === "vendedora.html" ? "orders" : "dashboard")
-      : (currentPage === "cliente.html" ? "cart" : "user");
+      : (currentPage === "cliente.html" ? "cart" : "catalog");
     const cartCount = isClientUser ? cartQuantityCount(cartState) : 0;
     const pendingCount = isClientUser
       ? getPendingOrderCount(currentOrders, currentUser.id)
@@ -4588,9 +4588,9 @@
               <div class="section__inner">
                 <div class="cta-banner cta-banner--notice">
                   <div>
-                    <p class="section__eyebrow"><span class="section__dot" aria-hidden="true"></span>Área da cliente</p>
-                    <h2>Monte o carrinho e acompanhe seus pedidos em tempo real.</h2>
-                    <p>Olá, ${escapeHtml(currentUser.name)}. Aqui você navega pelo catálogo, confirma a compra e acompanha os status sem misturar a área da vendedora.</p>
+                    <p class="section__eyebrow"><span class="section__dot" aria-hidden="true"></span>Bem-vindo</p>
+                    <h2>Monte seu carrinho e acompanhe seus pedidos.</h2>
+                    <p>Olá, ${escapeHtml(currentUser.name)}. Navegue pelo catálogo, confirme sua compra e acompanhe em tempo real.</p>
                   </div>
                   <div class="cta-banner__actions">
                     <a class="btn btn--solid" href="#catalogo">
@@ -4611,9 +4611,9 @@
                 <div class="section__head section__head--stack">
                   <div>
                     <p class="section__eyebrow"><span class="section__dot" aria-hidden="true"></span>Catálogo</p>
-                    <h2>Catálogo da cliente</h2>
+                    <h2>Produtos disponíveis</h2>
                   </div>
-                  <p class="section__lead">As peças cadastradas aparecem aqui na hora, com estoque e carrinho sincronizados pela conta logada.</p>
+                  <p class="section__lead">Veja todas as peças em estoque, com preços atualizados e carrinho sincronizado em tempo real.</p>
                 </div>
                 <div class="catalog-rail" data-client-catalog></div>
               </div>
@@ -4668,67 +4668,21 @@
                 <div class="section__head section__head--stack">
                   <div>
                     <p class="section__eyebrow"><span class="section__dot" aria-hidden="true"></span>Meus pedidos</p>
-                    <h2>Acompanhe o histórico da cliente</h2>
+                    <h2>Acompanhe seus pedidos</h2>
                   </div>
-                  <p class="section__lead">Quando o pedido é confirmado, ele aparece aqui com o status atualizado pela vendedora.</p>
+                  <p class="section__lead">Quando a compra é confirmada, ela aparece aqui com o status atualizado em tempo real.</p>
                 </div>
                 <div class="operations-grid client-orders-grid">
                   <article class="operation-card">
                     <div class="operation-card__header">
                       <div>
                         <p class="section__eyebrow"><span class="section__dot" aria-hidden="true"></span>Histórico</p>
-                        <h3>Pedidos da conta</h3>
+                        <h3>Seus pedidos</h3>
                       </div>
                     </div>
                     <div class="order-list" data-order-list></div>
                   </article>
                   <div class="sidebar-stack" data-order-status-summary></div>
-                </div>
-              </div>
-            </section>
-
-            <section class="section section--summary" data-client-about id="sobre">
-              <div class="section__inner">
-                <div class="section__head section__head--stack">
-                  <div>
-                    <p class="section__eyebrow"><span class="section__dot" aria-hidden="true"></span>Sobre</p>
-                    <h2>Sobre a loja</h2>
-                  </div>
-                  <p class="section__lead">A experiência da cliente foca navegação, catálogo e acompanhamento do pedido, sem misturar os acessos.</p>
-                </div>
-                <div class="summary-grid summary-grid--split">
-                  <article class="summary-card summary-card--tall">
-                    <div class="summary-card__top">
-                      <span class="summary-card__chip">Qualidade</span>
-                      <span class="summary-card__badge" aria-hidden="true">01</span>
-                    </div>
-                    <h3>Peças selecionadas</h3>
-                    <p>Cadastro simples, com foto, valor, tamanhos, quantidade e categorias opcionais.</p>
-                  </article>
-                  <article class="summary-card summary-card--tall">
-                    <div class="summary-card__top">
-                      <span class="summary-card__chip">Entrega</span>
-                      <span class="summary-card__badge" aria-hidden="true">02</span>
-                    </div>
-                    <h3>Pedido acompanha</h3>
-                    <p>O carrinho vira pedido e o cliente acompanha o status sem sair da área de usuário.</p>
-                  </article>
-                </div>
-              </div>
-            </section>
-
-            <section class="section section--cta" data-client-contact id="contato">
-              <div class="section__inner">
-                <div class="cta-banner">
-                  <div>
-                    <p class="section__eyebrow"><span class="section__dot" aria-hidden="true"></span>Contato</p>
-                    <h2>Fale com a loja rapidamente</h2>
-                    <p>Use os atalhos para falar com a equipe, pedir confirmação e tirar dúvidas sem sair do site.</p>
-                  </div>
-                  <div class="cta-banner__actions">
-                    <a class="btn btn--solid" href="#contato" data-whatsapp-link data-whatsapp-fallback="#contato">WhatsApp</a>
-                    <a class="btn btn--light" href="#contato">Ver contato</a>
-                  </div>
                 </div>
               </div>
             </section>
