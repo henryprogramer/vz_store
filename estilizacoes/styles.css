@@ -5783,17 +5783,18 @@ body {
 /* Ajustes adicionais para responsividade móvel */
 @media (max-width: 768px) {
   body {
-    --topbar-height: 60px;
-    padding-top: 60px;
+    --topbar-height: 62px;
+    padding-top: 62px;
   }
 
   .topbar {
     position: relative;
     justify-content: center;
     align-items: center;
-    padding: 8px 12px;
-    gap: 8px;
-    min-height: 58px;
+    padding: 10px 14px;
+    gap: 10px;
+    min-height: 60px;
+    background: rgba(255, 255, 255, 0.98);
   }
 
   .topbar__brand-group {
@@ -5802,24 +5803,25 @@ body {
   }
 
   .brand {
-    font-size: 1rem;
-    gap: 8px;
+    font-size: 1.1rem;
+    gap: 10px;
+    font-weight: 800;
   }
 
   .brand__mark {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
   }
 
   .topbar__actions {
     order: 0;
     position: absolute;
     top: 50%;
-    right: 12px;
+    right: 14px;
     transform: translateY(-50%);
     width: auto;
     justify-content: flex-end;
-    gap: 6px;
+    gap: 8px;
     padding: 0;
     background: transparent;
   }
@@ -5831,14 +5833,15 @@ body {
   .topbar__actions [data-topbar-profile-slot],
   .topbar__actions .profile-trigger {
     display: inline-block !important;
-    width: 46px;
-    height: 46px;
-    min-width: 46px;
-    min-height: 46px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
     padding: 0;
     font-size: 0;
     border-radius: 50%;
     overflow: hidden;
+    border: 2px solid rgba(17, 17, 17, 0.15);
   }
 
   .topbar__actions [data-topbar-profile-slot] svg,
@@ -5855,18 +5858,18 @@ body {
     order: 2;
     width: 100%;
     justify-content: center;
-    gap: 8px;
-    margin-top: 6px;
-    padding-bottom: 4px;
+    gap: 10px;
+    margin-top: 8px;
+    padding-bottom: 6px;
   }
 
   .page--home .nav__link {
     flex: 1 1 auto;
-    padding: 8px 8px;
-    font-size: 0.75rem;
-    font-weight: 600;
+    padding: 8px 10px;
+    font-size: 0.76rem;
+    font-weight: 700;
     text-align: center;
-    white-space: normal;
+    white-space: nowrap;
     min-width: 0;
     color: rgba(27, 24, 32, 0.8);
   }
@@ -5875,71 +5878,76 @@ body {
     grid-template-columns: 1fr;
     min-height: auto;
     padding-top: 0;
-    margin-top: -10px;
+    margin-top: 0;
+    overflow: visible;
+    background: #fff;
   }
 
   .hero__copy {
     order: 1;
-    padding: 14px 12px 10px;
-    gap: 10px;
+    padding: 16px 14px 12px;
+    gap: 12px;
+    background: #fff;
   }
 
   .hero h1 {
-    font-size: clamp(1.8rem, 7vw, 2.4rem);
-    line-height: 1.1;
+    font-size: clamp(1.9rem, 7.5vw, 2.6rem);
+    line-height: 1.15;
     max-width: 100%;
   }
 
   .hero__eyebrow {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
   }
 
   .hero__lead {
-    font-size: 0.88rem;
-    line-height: 1.4;
+    font-size: 0.9rem;
+    line-height: 1.45;
     max-width: 100%;
   }
 
   .hero__benefits {
     display: flex;
     flex-wrap: nowrap;
-    gap: 10px;
-    margin: 6px 0 0;
+    gap: 12px;
+    margin: 4px 0 0;
     padding: 0;
     list-style: none;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
   }
 
   .hero__benefits li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 4px;
-    color: rgba(27, 24, 32, 0.78);
-    font-size: 0.72rem;
+    justify-content: flex-start;
+    gap: 6px;
+    color: rgba(27, 24, 32, 0.82);
+    font-size: 0.7rem;
     font-weight: 700;
     flex: 0 0 auto;
-    min-width: 70px;
+    min-width: 72px;
     text-align: center;
   }
 
   .benefit__icon {
     display: grid;
     place-items: center;
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     flex: 0 0 auto;
     color: var(--accent);
-    background: rgba(17, 17, 17, 0.08);
-    border: 1px solid rgba(17, 17, 17, 0.12);
-    border-radius: 12px;
+    background: rgba(17, 17, 17, 0.06);
+    border: 1.5px solid rgba(17, 17, 17, 0.1);
+    border-radius: 14px;
   }
 
   .benefit__icon svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
   }
 
   .benefit__text {
@@ -5950,11 +5958,11 @@ body {
   }
 
   .benefit__text strong {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
   }
 
   .benefit__text small {
-    font-size: 0.65rem;
+    font-size: 0.63rem;
     color: var(--muted);
     font-weight: 600;
   }
@@ -5962,18 +5970,19 @@ body {
   .hero__actions {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     align-items: stretch;
-    margin-top: 8px;
+    margin-top: 10px;
   }
 
   .hero__actions .btn {
     width: 100%;
     justify-content: center;
-    min-height: 46px;
-    padding: 10px 12px;
-    font-size: 0.9rem;
+    min-height: 48px;
+    padding: 11px 14px;
+    font-size: 0.92rem;
     border-radius: 14px;
+    font-weight: 700;
   }
 
   .page--home .hero__actions .btn--solid {
@@ -5984,19 +5993,21 @@ body {
   .page--home .hero__actions .btn--light {
     background: rgba(255, 255, 255, 0.96);
     color: var(--accent);
-    border: 1px solid rgba(17, 17, 17, 0.12);
+    border: 1px solid rgba(17, 17, 17, 0.15);
   }
 
   .hero__visual {
-    order: 2;
-    min-height: auto;
-    padding: 0 12px 12px;
+    order: 3;
+    min-height: 0;
+    padding: 0;
     align-items: center;
     justify-content: center;
+    background: #fff;
   }
 
   .hero__model {
     display: none !important;
+    visibility: hidden !important;
   }
 
   .hero__visual img,
@@ -6014,7 +6025,7 @@ body {
 
   .footer__columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
+    gap: 16px;
   }
 
   .footer__group {
@@ -6022,8 +6033,7 @@ body {
   }
 
   .footer-link__icon,
-  .btn__icon,
-  .benefit__icon {
+  .btn__icon {
     width: 20px;
     height: 20px;
   }
@@ -6031,88 +6041,94 @@ body {
   .footer__small {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 12px;
     font-size: 0.85rem;
   }
 }
 
 @media (max-width: 480px) {
   body {
-    --topbar-height: 56px;
-    padding-top: 56px;
+    --topbar-height: 58px;
+    padding-top: 58px;
   }
 
   .topbar {
-    padding: 8px 10px;
-    gap: 6px;
-    min-height: 54px;
+    padding: 9px 12px;
+    gap: 8px;
+    min-height: 56px;
+  }
+
+  .brand {
+    font-size: 1rem;
   }
 
   .brand__mark {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
   }
 
   .topbar__actions {
-    right: 10px;
+    right: 12px;
   }
 
   .topbar__actions [data-topbar-profile-slot],
   .topbar__actions .profile-trigger {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    min-height: 44px;
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    min-height: 46px;
   }
 
   .page--home .nav {
-    gap: 6px;
+    gap: 8px;
+    margin-top: 6px;
   }
 
   .page--home .nav__link {
     font-size: 0.7rem;
-    padding: 6px 4px;
+    padding: 6px 8px;
   }
 
   .hero {
-    margin-top: -8px;
+    margin-top: 0;
   }
 
   .hero__copy {
-    padding: 12px 10px 8px;
-    gap: 8px;
+    padding: 14px 12px 10px;
+    gap: 10px;
   }
 
   .hero h1 {
-    font-size: clamp(1.6rem, 8vw, 2.2rem);
+    font-size: clamp(1.7rem, 8vw, 2.3rem);
   }
 
   .hero__lead {
-    font-size: 0.82rem;
+    font-size: 0.86rem;
   }
 
   .hero__benefits {
-    gap: 8px;
+    gap: 10px;
   }
 
   .hero__benefits li {
-    min-width: 65px;
-    font-size: 0.68rem;
+    min-width: 68px;
+    font-size: 0.67rem;
   }
 
   .benefit__icon {
-    width: 34px;
-    height: 34px;
+    width: 38px;
+    height: 38px;
   }
 
   .benefit__icon svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
   }
 
   .hero__actions .btn {
-    min-height: 44px;
-    padding: 10px 10px;
+    min-height: 46px;
+    padding: 10px 12px;
+    font-size: 0.88rem;
   }
 
   .footer__columns {
