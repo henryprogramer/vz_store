@@ -108,8 +108,8 @@ a {
 }
 
 .brand__mark {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 999px;
   background: radial-gradient(circle at 35% 35%, #5f5f5f 0%, var(--accent) 42%, var(--accent-strong) 100%);
   box-shadow: 0 0 0 8px rgba(17, 17, 17, 0.11);
@@ -5304,15 +5304,15 @@ body {
 
 .page--home .topbar .btn--solid {
   color: #111111;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(17, 17, 17, 0.12);
-  box-shadow: 0 16px 26px rgba(0, 0, 0, 0.08);
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .page--home .topbar .btn--light {
   color: #ffffff;
-  background: linear-gradient(135deg, #111111 0%, #2a2a2a 100%);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  border: none;
   box-shadow: 0 16px 26px rgba(0, 0, 0, 0.18);
 }
 
@@ -5809,8 +5809,8 @@ body {
   }
 
   .brand__mark {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
   }
 
   .topbar__actions {
@@ -6063,8 +6063,8 @@ body {
   }
 
   .brand__mark {
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 28px;
   }
 
   .topbar__actions {
