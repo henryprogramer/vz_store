@@ -1,6 +1,6 @@
 Comando para abrir o site:
 
-cd /home/henryprogramer/projetos/softwares/sites/lojas/loja_roupas/site_2 && python3 server.py
+cd /home/henryprogramer/projetos/softwares/sites/lojas/loja_roupas/vzstore && python3 server.py
 
 # Se a porta 8000 já estiver ocupada, o servidor usa a próxima porta livre e abre o navegador.
 

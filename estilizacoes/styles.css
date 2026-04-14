@@ -75,12 +75,14 @@ a {
 .topbar {
   position: fixed;
   inset: 0 0 auto 0;
-  z-index: 120;
+  z-index: 80;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 12px clamp(18px, 4vw, 44px) 12px;
+
+  padding: 6px clamp(18px, 4vw, 44px); /* 🔥 antes era 12px */
+  
   background: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid rgba(25, 18, 22, 0.08);
   backdrop-filter: blur(20px);
@@ -5776,4 +5778,303 @@ body {
     min-height: 44px !important;
     width: 100%;
   }
+}
+
+/* Ajustes adicionais para responsividade móvel */
+@media (max-width: 720px) {
+  .topbar {
+    align-items: center;
+    padding-inline: 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .topbar__brand-group,
+  .topbar__actions,
+  .nav {
+    min-width: 0;
+  }
+
+  .topbar__actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+    order: 2;
+  }
+
+  .topbar__actions .btn {
+    flex: 0 0 auto;
+    min-width: 48px;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 14px;
+  }
+
+  .topbar__actions .btn span:not(.btn__icon) {
+    display: none;
+  }
+
+  .topbar__actions .btn__icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .nav__link {
+    flex: 1 1 110px;
+    padding: 10px 6px;
+    text-align: center;
+  }
+
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .hero__copy {
+    padding: 24px 16px 12px;
+    order: 1;
+    z-index: 2;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+  }
+
+  .hero__visual {
+    min-height: 220px;
+    padding: 0 16px 10px;
+    order: 2;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero__model {
+    display: none;
+  }
+
+  .page--home .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .page--home .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 52px;
+    padding: 14px 16px;
+    border-radius: 16px;
+  }
+
+  .page--home .hero__actions .btn--solid {
+    background: linear-gradient(135deg, var(--accent), #1f1f1f);
+    color: #fff;
+  }
+
+  .page--home .hero__actions .btn--light {
+    background: rgba(255, 255, 255, 0.96);
+    color: var(--accent);
+    border: 1px solid rgba(17, 17, 17, 0.12);
+  }
+
+  .footer__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .footer__group {
+    gap: 8px;
+  }
+
+  .footer-link__icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .footer__small {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar {
+    padding: 10px 12px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .topbar__brand-group {
+    gap: 6px;
+    order: 1;
+  }
+
+  .brand {
+    font-size: 0.86rem;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    gap: 12px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .nav__link {
+    flex: 1 1 100%;
+    padding: 8px 0;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .topbar__actions {
+    order: 2;
+    justify-content: flex-start;
+    gap: 8px;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .topbar__actions .btn {
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    font-size: 0;
+    border-radius: 14px;
+  }
+
+  .topbar__actions .btn span:not(.btn__icon) {
+    display: none;
+  }
+
+  .topbar__actions .btn__icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hero__model {
+    display: none;
+  }
+
+  .hero__actions .btn {
+    min-height: 48px;
+  }
+
+  .footer__columns {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__small {
+    gap: 8px;
+  }
+
+  .footer-link__icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Melhorias adicionais específicas para mobile: empilha hero, evita sobreposição
+   do modelo, garante ícones visíveis e reduz tamanhos de botões/containers */
+@media (max-width: 720px) {
+  /* força uma coluna única e ordena cópia acima da visual */
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__copy {
+    order: 1;
+    z-index: 2;
+    padding-bottom: 12px;
+  }
+
+  .hero__visual {
+    order: 2;
+    z-index: 1;
+    align-items: center;
+    padding-bottom: 12px;
+    overflow: visible;
+  }
+
+  /* mantém o modelo contido, reduz escala e centraliza */
+  .hero__model {
+    width: 86vw;
+    max-width: 420px;
+    max-height: 60vh;
+    transform: translateY(6px) scale(1);
+    margin: 0 auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* evita o modelo ficar acima de botões ou outros elementos */
+  .hero__model {
+    position: relative;
+    z-index: 0;
+  }
+
+  /* ícones: sempre visíveis e dimensionados corretamente */
+  .btn__icon,
+  .footer-link__icon,
+  .benefit__icon,
+  .topbar__actions .btn__icon {
+    display: inline-grid !important;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+  }
+
+  .btn {
+    gap: 8px;
+  }
+
+  /* impedir textos enormes em botões e reduzir padding */
+  .topbar__actions .btn,
+  .page--home .topbar .btn {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    min-height: 44px;
+    border-radius: 10px;
+  }
+
+  /* melhora o comportamento da nav para não empurrar o layout */
+  .nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Evita imagens e SVGs estourarem fora do container */
+  .hero__visual img,
+  .hero__visual svg,
+  .hero__model img,
+  .hero__model svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* Garantia global de responsividade para mídias vetoriais e elementos multimídia */
+img,
+picture,
+svg,
+canvas,
+video {
+  max-width: 100%;
+  height: auto;
 }
