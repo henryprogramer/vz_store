@@ -5859,7 +5859,8 @@ body {
 
   .topbar__actions [data-topbar-profile-slot],
   .topbar__actions .profile-trigger {
-    display: inline-block !important;
+    display: inline-grid !important;
+    place-items: center;
     width: 48px;
     height: 48px;
     min-width: 48px;
@@ -5874,11 +5875,21 @@ body {
   .topbar__actions [data-topbar-profile-slot] svg,
   .topbar__actions [data-topbar-profile-slot] img,
   .topbar__actions .profile-trigger svg,
-  .topbar__actions .profile-trigger img {
+  .topbar__actions .profile-trigger img,
+  .topbar__actions .profile-trigger .profile-avatar {
     width: 100%;
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
+  }
+
+  .topbar__actions .profile-trigger .profile-trigger__label {
+    display: none !important;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
   }
 
   .nav {
