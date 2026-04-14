@@ -1,0 +1,11 @@
+# Ignore local data and database files
+/data/
+*.sqlite3
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+
+# OS files
+.DS_Store

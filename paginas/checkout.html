@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VzSTORE | Checkout</title>
+    <meta
+      name="description"
+      content="Página de checkout para revisar a sacola, preencher CPF/CNPJ, contato, endereço e dados de pagamento antes do pedido ser enviado para a vendedora."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../estilizacoes/styles.css" />
+  </head>
+  <body data-page="checkout">
+    <div class="page page--checkout">
+      <header class="topbar">
+        <div class="topbar__brand-group">
+          <a class="brand" href="index.html" aria-label="Página inicial">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__name">VzSTORE</span>
+          </a>
+        </div>
+
+        <nav class="nav" aria-label="Navegação principal">
+          <a class="nav__link" href="index.html#inicio">Início</a>
+          <a class="nav__link" href="catalogo.html">Catálogo</a>
+          <a class="nav__link" href="index.html#sobre">Sobre</a>
+          <a class="nav__link" href="index.html#contato" data-whatsapp-link data-whatsapp-fallback="index.html#contato">Contato</a>
+        </nav>
+
+        <div class="topbar__actions">
+          <a class="btn btn--solid" href="catalogo.html">
+            <span class="btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 6h15l-1.5 9h-13z" />
+                <path d="M6 6 5 3H2" />
+                <circle cx="9" cy="20" r="1.5" />
+                <circle cx="18" cy="20" r="1.5" />
+              </svg>
+            </span>
+            <span>Ver Catálogo</span>
+          </a>
+          <a class="btn btn--light" href="acesso.html" data-topbar-auth-link>
+            <span class="btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 17l5-5-5-5" />
+                <path d="M15 12H3" />
+                <path d="M21 3v18" />
+              </svg>
+            </span>
+            <span>Acesso</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="main">
+        <div data-checkout-shell></div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__inner">
+          <div class="footer__brand">
+            <a class="brand brand--footer" href="index.html">
+              <span class="brand__mark" aria-hidden="true"></span>
+              <span class="brand__name">VzSTORE</span>
+            </a>
+            <p>
+              O checkout revisa o pedido antes do envio. Assim o cliente confirma o pagamento e a equipe da loja recebe tudo já organizado.
+            </p>
+          </div>
+
+          <div class="footer__columns">
+            <div class="footer__group">
+              <h3>Atalhos</h3>
+              <a href="catalogo.html">Catálogo</a>
+              <a href="cliente.html#carrinho">Carrinho</a>
+              <a href="cliente.html#meus-pedidos">Meus pedidos</a>
+              <a href="index.html#contato" data-whatsapp-link data-whatsapp-fallback="index.html#contato">Contato</a>
+            </div>
+
+            <div class="footer__group">
+              <h3>Páginas</h3>
+              <a href="cliente.html">Área da cliente</a>
+              <a href="vendedora.html">Painel interno</a>
+              <a href="acesso.html">Acesso</a>
+            </div>
+
+            <div class="footer__group">
+              <h3>Voltar</h3>
+              <a href="catalogo.html">Catálogo</a>
+              <a href="cliente.html#carrinho">Editar sacola</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__small">
+          <span>Site 2 • Checkout</span>
+          <a href="#checkout">Voltar ao topo</a>
+        </div>
+      </footer>
+    </div>
+    <script defer src="../scripts/site.js"></script>
+  </body>
+</html>

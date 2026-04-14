@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VzSTORE | Catálogo</title>
+    <meta
+      name="description"
+      content="Catálogo completo da loja com todas as peças organizadas para navegação rápida."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../estilizacoes/styles.css" />
+  </head>
+  <body>
+    <div class="page page--catalog">
+      <header class="topbar">
+        <div class="topbar__brand-group">
+          <a class="brand" href="index.html" aria-label="Página inicial">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__name">VzSTORE</span>
+          </a>
+        </div>
+
+        <nav class="nav" aria-label="Navegação principal">
+          <a class="nav__link" href="index.html#inicio">Início</a>
+          <a class="nav__link" href="catalogo.html" aria-current="page">Catálogo</a>
+          <a class="nav__link" href="index.html#sobre">Sobre</a>
+          <a class="nav__link" href="index.html#contato" data-whatsapp-link data-whatsapp-fallback="index.html#contato">Contato</a>
+        </nav>
+
+        <div class="topbar__actions">
+          <a class="btn btn--solid" href="index.html">
+            <span class="btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12h18" />
+                <path d="m10 5-7 7 7 7" />
+              </svg>
+            </span>
+            <span>Início</span>
+          </a>
+          <a class="btn btn--light" href="acesso.html" data-topbar-auth-link>
+            <span class="btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 17l5-5-5-5" />
+                <path d="M15 12H3" />
+                <path d="M21 3v18" />
+              </svg>
+            </span>
+            <span>Acesso</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="section section--catalog" id="catalogo">
+          <div class="section__inner">
+            <div class="section__head section__head--stack">
+              <div>
+                <p class="section__eyebrow"><span class="section__dot" aria-hidden="true"></span>Catálogo</p>
+                <h2>Catálogo completo</h2>
+              </div>
+              <p class="section__lead">
+                Aqui ficam só os produtos. A home mostra um resumo da marca e os perfis entram pela página de acesso.
+              </p>
+            </div>
+
+            <div class="catalog-workspace">
+              <div class="catalog-rail" aria-label="Catálogo completo"></div>
+              <aside class="catalog-cart-panel" data-catalog-cart-shell id="carrinho" aria-label="Carrinho de compras"></aside>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__inner">
+          <div class="footer__brand">
+            <a class="brand brand--footer" href="index.html">
+              <span class="brand__mark" aria-hidden="true"></span>
+              <span class="brand__name">VzSTORE</span>
+            </a>
+            <p>
+              Catálogo focado nos produtos da VzSTORE. O acesso entra pela página de login quando necessário.
+            </p>
+          </div>
+
+          <div class="footer__columns">
+            <div class="footer__group">
+              <h3>Atalhos</h3>
+              <a href="index.html">Início</a>
+              <a href="#catalogo">Catálogo</a>
+              <a href="index.html#sobre">Sobre</a>
+              <a href="index.html#contato" data-whatsapp-link data-whatsapp-fallback="index.html#contato">Contato</a>
+            </div>
+
+            <div class="footer__group">
+              <h3>Páginas</h3>
+              <a href="acesso.html">Entrar / cadastrar</a>
+              <a href="index.html">Home</a>
+            </div>
+
+            <div class="footer__group">
+              <h3>Voltar</h3>
+              <a href="index.html">Home</a>
+              <a href="index.html#catalogo">Resumo da home</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__small">
+          <span>Site 2 • Catálogo</span>
+          <a href="#catalogo">Voltar ao topo</a>
+        </div>
+      </footer>
+    </div>
+    <script defer src="../scripts/site.js"></script>
+  </body>
+</html>

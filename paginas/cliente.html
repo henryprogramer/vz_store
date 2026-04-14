@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VzSTORE | Cliente</title>
+    <meta
+      name="description"
+      content="Área do cliente com carrinho, pedidos e acompanhamento da entrega."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../estilizacoes/styles.css" />
+  </head>
+  <body data-role="cliente">
+    <div class="page">
+      <header class="topbar">
+        <div class="topbar__brand-group">
+          <a class="brand" href="index.html" aria-label="Página inicial">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__name">VzSTORE</span>
+          </a>
+        </div>
+
+        <nav class="nav" aria-label="Navegação principal">
+          <a class="nav__link" href="index.html#inicio">Início</a>
+          <a class="nav__link" href="catalogo.html">Catálogo</a>
+          <a class="nav__link" href="index.html#sobre">Sobre</a>
+          <a class="nav__link" href="index.html#contato" data-whatsapp-link data-whatsapp-fallback="index.html#contato">Contato</a>
+        </nav>
+
+        <div class="topbar__actions">
+          <a class="btn btn--solid" href="catalogo.html">
+            <span class="btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 6h15l-1.5 9h-13z" />
+                <path d="M6 6 5 3H2" />
+                <circle cx="9" cy="20" r="1.5" />
+                <circle cx="18" cy="20" r="1.5" />
+              </svg>
+            </span>
+            <span>Ver Catálogo</span>
+          </a>
+          <a class="btn btn--solid topbar-checkout" href="checkout.html" data-topbar-checkout>
+            <span class="topbar-action__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19V5" />
+                <path d="M8 19v-8" />
+                <path d="M12 19v-12" />
+                <path d="M16 19v-6" />
+                <path d="M20 19V9" />
+              </svg>
+            </span>
+            <span>Checkout</span>
+          </a>
+          <button
+            type="button"
+            class="btn btn--light"
+            data-topbar-profile-slot
+            aria-controls="topbar-profile-popover"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-label="Abrir perfil"
+          >
+            <span class="btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a5 5 0 0 0-5 5v1a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5Z" />
+                <path d="M4 20a8 8 0 0 1 16 0" />
+              </svg>
+            </span>
+            <span>Perfil</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="main">
+        <div data-client-shell></div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__inner">
+          <div class="footer__brand">
+            <a class="brand brand--footer" href="index.html">
+              <span class="brand__mark" aria-hidden="true"></span>
+              <span class="brand__name">VzSTORE</span>
+            </a>
+            <p>
+              Área do cliente focada em navegação simples, com links diretos para o catálogo e a troca de perfil.
+            </p>
+          </div>
+
+          <div class="footer__columns">
+            <div class="footer__group">
+              <h3>Atalhos</h3>
+              <a href="#inicio">
+                <span class="footer-link__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 14a5 5 0 1 0-5-5 5 5 0 0 0 5 5Z" />
+                    <path d="M4 20a8 8 0 0 1 16 0" />
+                  </svg>
+                </span>
+                <span>Cliente</span>
+              </a>
+              <a href="#catalogo">
+                <span class="footer-link__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 7.5 12 4l8 3.5v9L12 20l-8-3.5v-9Z" />
+                    <path d="M4 7.5 12 11l8-3.5" />
+                    <path d="M12 11v9" />
+                  </svg>
+                </span>
+                <span>Catálogo</span>
+              </a>
+              <a href="#carrinho">
+                <span class="footer-link__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 6h15l-1.5 9h-13z" />
+                    <path d="M6 6 5 3H2" />
+                    <circle cx="9" cy="20" r="1.5" />
+                    <circle cx="18" cy="20" r="1.5" />
+                  </svg>
+                </span>
+                <span>Carrinho</span>
+              </a>
+              <a href="#meus-pedidos">
+                <span class="footer-link__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="4" width="14" height="16" rx="2" />
+                    <path d="M9 4.5V3h6v1.5" />
+                    <path d="M9 10h6" />
+                    <path d="M9 14h6" />
+                  </svg>
+                </span>
+                <span>Meus pedidos</span>
+              </a>
+              <a href="#sobre">
+                <span class="footer-link__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 10v6" />
+                    <path d="M12 7.2h.01" />
+                  </svg>
+                </span>
+                <span>Sobre</span>
+              </a>
+              <a href="#contato" data-whatsapp-link data-whatsapp-fallback="#contato">
+                <span class="footer-link__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.5 6.5 8.5 4l2.4 3.9-1.7 1.6c1 2.1 2.6 3.7 4.7 4.7l1.6-1.7 3.9 2.4-2.5 4c-.4.7-1.2 1.1-2 1-6.6-.8-11.8-6-12.6-12.6-.1-.8.3-1.6 1-2Z" />
+                  </svg>
+                </span>
+                <span>Contato</span>
+              </a>
+              <a href="acesso.html">
+                <span class="footer-link__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 17l5-5-5-5" />
+                    <path d="M15 12H3" />
+                    <path d="M21 3v18" />
+                  </svg>
+                </span>
+                <span>Acesso</span>
+              </a>
+            </div>
+
+            <div class="footer__group">
+              <h3>Páginas</h3>
+              <a href="catalogo.html">Catálogo</a>
+              <a href="acesso.html">Acesso</a>
+            </div>
+
+            <div class="footer__group">
+              <h3>Voltar</h3>
+              <a href="#inicio">Topo da página</a>
+              <a href="acesso.html" data-action="logout">Sair</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__small">
+          <span>Site 2 • Cliente</span>
+          <a href="#inicio">Voltar ao topo</a>
+        </div>
+      </footer>
+    </div>
+    <script defer src="../scripts/site.js"></script>
+  </body>
+</html>

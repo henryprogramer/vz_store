@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VzSTORE | Painel Interno</title>
+    <meta
+      name="description"
+      content="Painel interno para cadastro de produtos, estoque, pagamentos e atendimento."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../estilizacoes/styles.css" />
+  </head>
+  <body data-role="vendedora">
+    <div class="page">
+      <header class="topbar">
+        <div class="topbar__brand-group">
+          <button
+            type="button"
+            class="topbar__menu-toggle"
+            data-sidebar-toggle
+            aria-controls="seller-sidebar-menu"
+            aria-expanded="false"
+            aria-label="Abrir menu lateral"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 6h16" />
+              <path d="M4 12h16" />
+              <path d="M4 18h16" />
+            </svg>
+          </button>
+
+          <a class="brand" href="index.html" aria-label="Página inicial">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__name">VzSTORE</span>
+          </a>
+        </div>
+
+        <div class="topbar__actions">
+          <a class="btn btn--solid" href="index.html" title="Abrir loja pública">
+            <span class="btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 6h15l-1.5 9h-13z" />
+                <path d="M6 6 5 3H2" />
+                <circle cx="9" cy="20" r="1.5" />
+                <circle cx="18" cy="20" r="1.5" />
+              </svg>
+            </span>
+            <span>Loja pública</span>
+          </a>
+          <button type="button" class="btn btn--light" data-action="logout">
+            <span class="btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a5 5 0 0 0-5 5v1a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5Z" />
+                <path d="M4 20a8 8 0 0 1 16 0" />
+              </svg>
+            </span>
+            <span>Sair</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="main">
+        <div data-seller-shell></div>
+      </main>
+
+      <footer class="footer">
+          <div class="footer__inner">
+          <div class="footer__brand">
+            <a class="brand brand--footer" href="index.html">
+              <span class="brand__mark" aria-hidden="true"></span>
+              <span class="brand__name">VzSTORE</span>
+            </a>
+            <p>
+              Espaço interno focado em operação. A área pública fica separada para a cliente navegar sem ruído.
+            </p>
+          </div>
+
+          <div class="footer__columns">
+          <div class="footer__group">
+            <h3>Atalhos</h3>
+            <a href="#painel">
+              <span class="footer-link__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19V5" />
+                  <path d="M8 19v-5" />
+                  <path d="M12 19v-9" />
+                  <path d="M16 19v-7" />
+                  <path d="M20 19v-12" />
+                </svg>
+              </span>
+              <span>Painel interno</span>
+            </a>
+            <a href="#estoque">
+              <span class="footer-link__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3 20 7v10l-8 4-8-4V7l8-4Z" />
+                  <path d="M12 7v14" />
+                  <path d="M4 7l8 4 8-4" />
+                </svg>
+              </span>
+              <span>Estoque</span>
+            </a>
+            <a href="#pedidos">
+              <span class="footer-link__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="4" width="14" height="16" rx="2" />
+                  <path d="M9 4.5V3h6v1.5" />
+                  <path d="M9 10h6" />
+                  <path d="M9 14h6" />
+                </svg>
+              </span>
+              <span>Pedidos</span>
+            </a>
+            <a href="#cadastros">
+              <span class="footer-link__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 14a5 5 0 1 0-5-5 5 5 0 0 0 5 5Z" />
+                  <path d="M4 20a8 8 0 0 1 16 0" />
+                </svg>
+              </span>
+              <span>Cadastros</span>
+            </a>
+            <a href="#contato" data-whatsapp-link data-whatsapp-fallback="#contato">
+              <span class="footer-link__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.5 6.5 8.5 4l2.4 3.9-1.7 1.6c1 2.1 2.6 3.7 4.7 4.7l1.6-1.7 3.9 2.4-2.5 4c-.4.7-1.2 1.1-2 1-6.6-.8-11.8-6-12.6-12.6-.1-.8.3-1.6 1-2Z" />
+                </svg>
+              </span>
+              <span>Contato</span>
+            </a>
+          </div>
+
+          <div class="footer__group">
+            <h3>Páginas</h3>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="acesso.html">Acesso</a>
+            <a href="index.html">Home</a>
+          </div>
+
+            <div class="footer__group">
+              <h3>Voltar</h3>
+              <a href="index.html">Resumo da loja</a>
+              <a href="acesso.html" data-action="logout">Sair</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__small">
+          <span>VzSTORE • Painel interno</span>
+          <a href="#painel">Voltar ao topo</a>
+        </div>
+      </footer>
+    </div>
+    <script defer src="../scripts/site.js"></script>
+  </body>
+</html>

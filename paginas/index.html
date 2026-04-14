@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VzSTORE | Moda Masculina</title>
+    <meta
+      name="description"
+      content="Landing page da VzSTORE com hero inspirado em vitrine premium, catálogo em destaque e acesso por login."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../estilizacoes/styles.css" />
+  </head>
+  <body>
+    <div class="page page--home">
+      <header class="topbar">
+        <div class="topbar__brand-group">
+          <a class="brand" href="#inicio" aria-label="Página inicial">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__name">VzSTORE</span>
+          </a>
+        </div>
+
+        <nav class="nav" aria-label="Navegação principal">
+          <a class="nav__link" href="#inicio" aria-current="page">Início</a>
+          <a class="nav__link" href="catalogo.html">Catálogo</a>
+          <a class="nav__link" href="#sobre">Sobre</a>
+          <a class="nav__link" href="#contato" data-whatsapp-link data-whatsapp-fallback="#contato">Contato</a>
+        </nav>
+
+        <div class="topbar__actions">
+          <a class="btn btn--solid" href="catalogo.html">
+            <span class="btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 6h15l-1.5 9h-13z" />
+                <path d="M6 6 5 3H2" />
+                <circle cx="9" cy="20" r="1.5" />
+                <circle cx="18" cy="20" r="1.5" />
+              </svg>
+            </span>
+            <span>Ver Catálogo</span>
+          </a>
+          <a class="btn btn--light" href="acesso.html" data-topbar-auth-link>
+            <span class="btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 17l5-5-5-5" />
+                <path d="M15 12H3" />
+                <path d="M21 3v18" />
+              </svg>
+            </span>
+            <span>Entrar</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="hero" id="inicio">
+          <section class="hero__copy" aria-labelledby="hero-title">
+            <p class="hero__eyebrow">Moda masculina</p>
+            <h1 id="hero-title">
+              Estilo,<br />
+              Qualidade,<br />
+              <span>SUA MARCA!</span>
+            </h1>
+            <p class="hero__lead">
+              Vista a paixão. Sinta o orgulho.<br />
+              Moda pra quem veste moda.
+            </p>
+
+            <div class="hero__actions">
+              <a class="btn btn--solid" href="catalogo.html">
+                <span class="btn__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 6h15l-1.5 9h-13z" />
+                    <path d="M6 6 5 3H2" />
+                    <circle cx="9" cy="20" r="1.5" />
+                    <circle cx="18" cy="20" r="1.5" />
+                  </svg>
+                </span>
+                <span>Ver Catálogo</span>
+              </a>
+
+              <a class="btn btn--light" href="#contato" data-whatsapp-link data-whatsapp-fallback="#contato">
+                <span class="btn__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.5 13.5a8.5 8.5 0 1 1-7.2-8.4" />
+                    <path d="M14 4.5h5.5V10" />
+                    <path d="M14 10 19.5 4.5" />
+                  </svg>
+                </span>
+                <span>Chama no ZAP!</span>
+              </a>
+            </div>
+
+            <ul class="hero__benefits" aria-label="Benefícios principais">
+              <li>
+                <span class="benefit__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m12 2 2.7 5.5L20.5 8l-4.2 4.1L17.3 18 12 15.2 6.7 18l1-5.9L3.5 8l5.8-.5L12 2Z" />
+                  </svg>
+                </span>
+                <span class="benefit__text">
+                  <strong>Qualidade</strong>
+                  <small>Garantida</small>
+                </span>
+              </li>
+              <li>
+                <span class="benefit__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="9" width="16" height="10" rx="2" />
+                    <path d="M8 9V7a4 4 0 0 1 8 0v2" />
+                    <path d="M12 13v3" />
+                  </svg>
+                </span>
+                <span class="benefit__text">
+                  <strong>Compra</strong>
+                  <small>Segura</small>
+                </span>
+              </li>
+              <li>
+                <span class="benefit__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 13h11v5H3z" />
+                    <path d="M14 10h4l3 3v5h-7z" />
+                    <circle cx="7" cy="19" r="1.5" />
+                    <circle cx="18" cy="19" r="1.5" />
+                  </svg>
+                </span>
+                <span class="benefit__text">
+                  <strong>Envio para</strong>
+                  <small>todo o Brasil</small>
+                </span>
+              </li>
+            </ul>
+          </section>
+
+          <div class="hero__visual" aria-label="Foto da modelo em destaque">
+            <img
+              class="hero__model"
+              src="../imagens/modelo.png"
+              alt="Modelo masculino em destaque usando casaco preto e oculos escuros"
+            />
+          </div>
+        </section>
+
+        <section class="section section--catalog" id="catalogo">
+          <div class="section__inner">
+            <div class="section__head">
+              <div>
+                <p class="section__eyebrow"><span class="section__dot" aria-hidden="true"></span>Destaques</p>
+                <h2>Peças em destaque</h2>
+              </div>
+              <a class="section__action" href="catalogo.html">Ver catálogo completo</a>
+            </div>
+
+            <div class="catalog-rail" aria-label="Produtos em destaque"></div>
+          </div>
+        </section>
+
+        <section class="section section--summary" id="sobre">
+          <div class="section__inner">
+            <div class="section__head section__head--stack">
+              <div>
+                <p class="section__eyebrow"><span class="section__dot" aria-hidden="true"></span>Plataforma</p>
+                <h2>Estrutura completa com visual renovado</h2>
+              </div>
+              <p class="section__lead">
+                A home apresenta a marca, o catálogo e os atalhos, enquanto o login continua levando cada perfil para a área correta.
+              </p>
+            </div>
+
+            <div class="summary-grid summary-grid--split">
+              <article class="summary-card summary-card--tall" id="cliente">
+                <div class="summary-card__top">
+                  <span class="summary-card__chip">Cliente</span>
+                  <span class="summary-card__badge" aria-hidden="true">01</span>
+                </div>
+                <h3>Área do cliente</h3>
+                <p>Carrinho, pedidos, histórico e acompanhamento de entrega em um só lugar.</p>
+                <ul class="summary-card__list" aria-label="Funcionalidades do cliente">
+                  <li>Carrinho</li>
+                  <li>Pedidos</li>
+                  <li>Status</li>
+                </ul>
+                <a class="summary-card__action" href="acesso.html?next=cliente.html">Entrar como cliente</a>
+              </article>
+
+              <article class="summary-card">
+                <div class="summary-card__top">
+                  <span class="summary-card__chip">Vendedora</span>
+                  <span class="summary-card__badge" aria-hidden="true">02</span>
+                </div>
+                <h3>Área da vendedora</h3>
+                <p>Painel interno para pedidos, estoque e cadastros. A aba da vendedora sempre exige login.</p>
+                <ul class="summary-card__list" aria-label="Funcionalidades da vendedora">
+                  <li>Login obrigatório</li>
+                  <li>Painel interno</li>
+                  <li>Gestão de usuários</li>
+                </ul>
+                <a class="summary-card__action" href="acesso.html?next=vendedora.html">Entrar como vendedora</a>
+              </article>
+
+            </div>
+          </div>
+        </section>
+
+        <section class="section section--cta" id="contato">
+          <div class="section__inner">
+            <div class="cta-banner">
+              <div>
+                <p class="section__eyebrow"><span class="section__dot" aria-hidden="true"></span>Contato</p>
+                <h2>Catálogo online, pedido pelo site e atendimento rápido no WhatsApp.</h2>
+                <p>
+                  Fale direto com a loja pelo WhatsApp <strong>+55 38 99940-0164</strong> e siga nosso Instagram <strong>@vzstoreloja_</strong> para lançamentos e novidades.
+                </p>
+              </div>
+              <div class="cta-banner__actions">
+                <a class="btn btn--solid" href="catalogo.html">Abrir Catálogo</a>
+                <a class="btn btn--light" href="#contato" data-whatsapp-link data-whatsapp-fallback="#contato">WhatsApp da Loja</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__inner">
+          <div class="footer__brand">
+            <a class="brand brand--footer" href="#inicio">
+              <span class="brand__mark" aria-hidden="true"></span>
+              <span class="brand__name">VzSTORE</span>
+            </a>
+            <p>
+              LOJA DO VZ | Loja de Roupas. 🔥 Se vestir bem muda o jogo. 🚀 +7.000 pedidos entregues. 🇧🇷 Enviamos para todo Brasil. ⏳ Peças limitadas.
+            </p>
+          </div>
+
+          <div class="footer__columns">
+            <div class="footer__group">
+              <h3>Atalhos</h3>
+              <a href="#inicio">
+                <span class="footer-link__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 11.5 12 5l8 6.5" />
+                    <path d="M6.5 10.5V19h11v-8.5" />
+                    <path d="M10 19v-5h4v5" />
+                  </svg>
+                </span>
+                <span>Início</span>
+              </a>
+              <a href="#catalogo">
+                <span class="footer-link__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 7.5 12 4l8 3.5v9L12 20l-8-3.5v-9Z" />
+                    <path d="M4 7.5 12 11l8-3.5" />
+                    <path d="M12 11v9" />
+                  </svg>
+                </span>
+                <span>Catálogo</span>
+              </a>
+              <a href="#sobre">
+                <span class="footer-link__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 10v6" />
+                    <path d="M12 7.2h.01" />
+                  </svg>
+                </span>
+                <span>Sobre</span>
+              </a>
+              <a href="#contato" data-whatsapp-link data-whatsapp-fallback="#contato">
+                <span class="footer-link__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4.5 6.5 8.5 4l2.4 3.9-1.7 1.6c1 2.1 2.6 3.7 4.7 4.7l1.6-1.7 3.9 2.4-2.5 4c-.4.7-1.2 1.1-2 1-6.6-.8-11.8-6-12.6-12.6-.1-.8.3-1.6 1-2Z" />
+                  </svg>
+                </span>
+                <span>Contato</span>
+              </a>
+            </div>
+
+            <div class="footer__group">
+              <h3>Páginas</h3>
+              <a href="catalogo.html">Catálogo completo</a>
+              <a href="acesso.html">Acesso</a>
+            </div>
+
+            <div class="footer__group">
+              <h3>Acesso</h3>
+              <a href="acesso.html">Login / cadastro</a>
+              <a href="#contato" data-whatsapp-link data-whatsapp-fallback="#contato">Falar com a loja</a>
+              <p>WhatsApp: <a href="https://wa.me/5538999400164" target="_blank" rel="noopener noreferrer">+55 38 99940-0164</a><br>Instagram: <a href="https://www.instagram.com/vzstoreloja_/" target="_blank" rel="noopener noreferrer">@vzstoreloja_</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__small">
+          <span>LOJA DO VZ • Loja de Roupas</span>
+          <a href="#inicio">Voltar ao topo</a>
+        </div>
+      </footer>
+    </div>
+    <script defer src="../scripts/site.js"></script>
+  </body>
+</html>

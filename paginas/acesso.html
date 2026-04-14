@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VzSTORE | Acesso</title>
+    <meta
+      name="description"
+      content="Página de login e cadastro da loja."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../estilizacoes/styles.css" />
+  </head>
+  <body data-page="access">
+    <div class="page page--access">
+      <header class="topbar">
+        <div class="topbar__brand-group">
+          <a class="brand" href="index.html" aria-label="Página inicial">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span class="brand__name">VzSTORE</span>
+          </a>
+        </div>
+
+        <nav class="nav" aria-label="Navegação principal">
+          <a class="nav__link" href="index.html#inicio">Início</a>
+          <a class="nav__link" href="catalogo.html">Catálogo</a>
+          <a class="nav__link" href="index.html#sobre">Sobre</a>
+          <a class="nav__link" href="index.html#contato" data-whatsapp-link data-whatsapp-fallback="index.html#contato">Contato</a>
+        </nav>
+
+        <div class="topbar__actions">
+          <a class="btn btn--solid" href="catalogo.html">
+            <span class="btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 6h15l-1.5 9h-13z" />
+                <path d="M6 6 5 3H2" />
+                <circle cx="9" cy="20" r="1.5" />
+                <circle cx="18" cy="20" r="1.5" />
+              </svg>
+            </span>
+            <span>Ver Catálogo</span>
+          </a>
+          <a class="btn btn--light" href="index.html">
+            <span class="btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12h18" />
+                <path d="m10 5-7 7 7 7" />
+              </svg>
+            </span>
+            <span>Voltar à Home</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="access" aria-labelledby="acesso-title">
+          <div class="access__intro">
+            <p class="access__eyebrow">Acesso seguro</p>
+            <h1 class="access__title" id="acesso-title">Entre com usuário e senha</h1>
+            <p class="access__lead">
+              Entre com seu email ou usuário, ou crie uma conta nova se ainda não tiver acesso. A área da vendedora
+              sempre passa por login de administrador.
+            </p>
+          </div>
+
+          <div class="access-grid">
+            <article class="access-card access-card--panel">
+              <div class="access-tabs" role="tablist" aria-label="Entrar ou cadastrar">
+                <button class="access-tab is-active" type="button" role="tab" aria-selected="true" data-access-tab="login">
+                  Login
+                </button>
+                <button class="access-tab" type="button" role="tab" aria-selected="false" data-access-tab="register">
+                  Cadastro
+                </button>
+              </div>
+
+              <div class="access-panel is-active" data-access-panel="login" role="tabpanel">
+                <form class="access-form" data-login-form>
+                  <div class="access-card__top">
+                    <span class="summary-card__chip">Entrar</span>
+                    <span class="access-card__badge" aria-hidden="true">01</span>
+                  </div>
+                  <h3>Acessar a conta</h3>
+                  <p>Entre com email ou nome de usuário e sua senha. Para abrir a área da vendedora, use uma conta admin.</p>
+
+                  <input type="hidden" name="next" value="" data-login-next />
+
+                  <label class="field">
+                    <span>Email ou usuário</span>
+                    <input
+                      type="text"
+                      name="identifier"
+                      autocomplete="username"
+                      placeholder="Digite seu email ou usuário"
+                      required
+                      data-login-identifier
+                    />
+                  </label>
+
+                  <div class="field field--password">
+                    <label for="login-password"><span>Senha</span></label>
+                    <div class="field__password">
+                      <input
+                        id="login-password"
+                        type="password"
+                        name="password"
+                        autocomplete="current-password"
+                        placeholder="Digite sua senha"
+                        required
+                        data-login-password
+                      />
+                      <button
+                        class="password-toggle"
+                        type="button"
+                        data-toggle-password
+                        aria-pressed="false"
+                        aria-label="Mostrar senha"
+                        title="Mostrar senha"
+                      >
+                        <svg class="password-toggle__icon password-toggle__icon--show" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+                          <circle cx="12" cy="12" r="3" />
+                        </svg>
+                        <svg class="password-toggle__icon password-toggle__icon--hide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M3 3l18 18" />
+                          <path d="M10.6 10.6A3 3 0 0 0 12 15a3 3 0 0 0 2.4-1.2" />
+                          <path d="M5.6 5.6C3.5 7.5 2 12 2 12s3.5 7 10 7a10.4 10.4 0 0 0 3.4-.6" />
+                          <path d="M18.4 18.4C20.5 16.5 22 12 22 12s-3.5-7-10-7a10.4 10.4 0 0 0-3.4.6" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="access-form__meta">
+                    <label class="field field--inline">
+                      <input type="checkbox" name="remember" checked />
+                      <span>Manter acesso neste navegador</span>
+                    </label>
+                    <button class="access-form__link" type="button" data-access-switch="register">
+                      Não tem conta? Cadastre-se
+                    </button>
+                  </div>
+
+                  <button class="access-card__action" type="submit">Entrar</button>
+                  <p class="access-form__status" data-login-message></p>
+                  <p class="access-form__hint">Admin padrão deste site: usuário <code>admin</code> e senha <code>9088</code>.</p>
+                </form>
+              </div>
+
+              <div class="access-panel" data-access-panel="register" hidden role="tabpanel">
+                <form class="access-form" data-register-form>
+                  <div class="access-card__top">
+                    <span class="summary-card__chip">Cadastro</span>
+                    <span class="access-card__badge" aria-hidden="true">02</span>
+                  </div>
+                  <h3>Criar conta</h3>
+                  <p>Cadastre-se em poucos passos e depois use seu email ou usuário para entrar sempre que voltar.</p>
+
+                  <div class="field-grid">
+                    <label class="field">
+                      <span>Nome</span>
+                      <input type="text" name="name" autocomplete="name" placeholder="Seu nome" required data-register-name />
+                    </label>
+                    <label class="field">
+                      <span>Email</span>
+                      <input type="email" name="email" autocomplete="email" placeholder="voce@exemplo.com" required data-register-email />
+                    </label>
+                    <label class="field">
+                      <span>Usuário</span>
+                      <input type="text" name="username" autocomplete="username" placeholder="Escolha um usuário" required data-register-username />
+                    </label>
+                    <label class="field field--wide">
+                      <span>Foto do perfil</span>
+                      <input type="file" name="imageFile" accept="image/*" data-register-image-file />
+                    </label>
+
+                    <div class="field field--password">
+                      <label for="register-password"><span>Senha</span></label>
+                      <div class="field__password">
+                        <input
+                          id="register-password"
+                          type="password"
+                          name="password"
+                          autocomplete="new-password"
+                          placeholder="Crie sua senha"
+                          required
+                          data-register-password
+                        />
+                        <button
+                          class="password-toggle"
+                          type="button"
+                          data-toggle-password
+                          aria-pressed="false"
+                          aria-label="Mostrar senha"
+                          title="Mostrar senha"
+                        >
+                          <svg class="password-toggle__icon password-toggle__icon--show" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+                            <circle cx="12" cy="12" r="3" />
+                          </svg>
+                          <svg class="password-toggle__icon password-toggle__icon--hide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M3 3l18 18" />
+                            <path d="M10.6 10.6A3 3 0 0 0 12 15a3 3 0 0 0 2.4-1.2" />
+                            <path d="M5.6 5.6C3.5 7.5 2 12 2 12s3.5 7 10 7a10.4 10.4 0 0 0 3.4-.6" />
+                            <path d="M18.4 18.4C20.5 16.5 22 12 22 12s-3.5-7-10-7a10.4 10.4 0 0 0-3.4.6" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+
+                    <label class="field">
+                      <span>Confirmar senha</span>
+                      <input
+                        type="password"
+                        name="confirmPassword"
+                        autocomplete="new-password"
+                        placeholder="Repita sua senha"
+                        required
+                        data-register-confirm
+                      />
+                    </label>
+                  </div>
+
+                  <div class="access-form__meta">
+                    <p class="access-form__hint">Você poderá entrar usando seu email ou seu usuário.</p>
+                    <button class="access-form__link" type="button" data-access-switch="login">
+                      Já tenho conta
+                    </button>
+                  </div>
+
+                  <button class="access-card__action" type="submit">Criar conta e entrar</button>
+                  <p class="access-form__status" data-register-message></p>
+                </form>
+              </div>
+            </article>
+
+            <article class="access-card access-card--info">
+              <div class="access-card__top">
+                <span class="summary-card__chip">Conta</span>
+                <span class="access-card__badge" aria-hidden="true">03</span>
+              </div>
+              <h3>Cliente e vendedora</h3>
+              <p>O site separa o lado do cliente e o lado da vendedora com permissões diferentes.</p>
+              <ul class="access-card__list" aria-label="Dicas de acesso">
+                <li>Área da cliente com login comum</li>
+                <li>Área da vendedora só com perfil admin</li>
+                <li>Admin padrão: <code>admin</code> / <code>9088</code></li>
+                <li>Admin pode cadastrar usuários e marcar novos admins</li>
+              </ul>
+              <p class="access-note">
+                A navegação segue a conta logada e mantém o acesso organizado.
+              </p>
+            </article>
+          </div>
+
+          <p class="access-note">
+            O catálogo continua público, mas entrar na aba da vendedora sempre exige login admin.
+          </p>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__inner">
+          <div class="footer__brand">
+            <a class="brand brand--footer" href="index.html">
+              <span class="brand__mark" aria-hidden="true"></span>
+              <span class="brand__name">VzSTORE</span>
+            </a>
+            <p>
+              Acesso protegido, cadastro simples e navegação por conta.
+            </p>
+          </div>
+
+          <div class="footer__columns">
+            <div class="footer__group">
+              <h3>Público</h3>
+              <a href="index.html">Home</a>
+              <a href="catalogo.html">Catálogo</a>
+              <a href="index.html#contato" data-whatsapp-link data-whatsapp-fallback="index.html#contato">Contato</a>
+            </div>
+
+            <div class="footer__group">
+              <h3>Conta</h3>
+              <a href="acesso.html">Login / cadastro</a>
+              <a href="index.html">Voltar à home</a>
+            </div>
+
+            <div class="footer__group">
+              <h3>Ajuda</h3>
+              <a href="acesso.html">Reabrir acesso</a>
+              <a href="#acesso-title">Voltar ao topo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__small">
+          <span>Site 2 • Acesso</span>
+          <a href="index.html">Voltar à home</a>
+        </div>
+      </footer>
+    </div>
+    <script defer src="../scripts/site.js"></script>
+  </body>
+</html>
