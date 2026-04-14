@@ -5791,8 +5791,8 @@ body {
     position: relative;
     justify-content: center;
     align-items: center;
-    padding: 10px 12px;
-    gap: 10px;
+    padding: 8px 12px;
+    gap: 8px;
     min-height: 56px;
   }
 
@@ -5809,91 +5809,151 @@ body {
     transform: translateY(-50%);
     width: auto;
     justify-content: flex-end;
-    gap: 8px;
+    gap: 6px;
     padding: 0;
     background: transparent;
   }
 
   .topbar__actions .btn {
+    display: none;
+  }
+
+  .topbar__actions [data-topbar-profile-slot],
+  .topbar__actions .profile-trigger {
+    display: inline-block !important;
     width: 42px;
     height: 42px;
     min-width: 42px;
     min-height: 42px;
     padding: 0;
     font-size: 0;
-    border-radius: 14px;
+    border-radius: 50%;
   }
 
-  .topbar__actions .btn span:not(.btn__icon) {
-    display: none;
-  }
-
-  .topbar__actions .btn__icon {
-    width: 20px;
-    height: 20px;
+  .topbar__actions [data-topbar-profile-slot] svg,
+  .topbar__actions [data-topbar-profile-slot] img,
+  .topbar__actions .profile-trigger svg,
+  .topbar__actions .profile-trigger img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
   }
 
   .page--home .nav {
     order: 2;
     width: 100%;
     justify-content: center;
-    gap: 10px;
-    margin-top: 8px;
+    gap: 8px;
+    margin-top: 6px;
     padding-bottom: 4px;
   }
 
   .page--home .nav__link {
     flex: 1 1 auto;
-    padding: 8px 10px;
-    font-size: 0.82rem;
+    padding: 8px 8px;
+    font-size: 0.75rem;
     font-weight: 600;
     text-align: center;
     white-space: normal;
     min-width: 0;
+    color: rgba(27, 24, 32, 0.8);
   }
 
   .hero {
     grid-template-columns: 1fr;
     min-height: auto;
     padding-top: 0;
+    margin-top: -10px;
   }
 
   .hero__copy {
     order: 1;
-    padding: 18px 14px 12px;
-    gap: 14px;
+    padding: 14px 12px 10px;
+    gap: 10px;
   }
 
   .hero h1 {
-    font-size: clamp(2.2rem, 8vw, 3rem);
-    line-height: 1;
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+    line-height: 1.1;
     max-width: 100%;
   }
 
   .hero__eyebrow {
-    font-size: 0.78rem;
+    font-size: 0.7rem;
   }
 
   .hero__lead {
-    font-size: 0.95rem;
-    line-height: 1.45;
+    font-size: 0.88rem;
+    line-height: 1.4;
     max-width: 100%;
+  }
+
+  .hero__benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    margin: 6px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hero__benefits li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(27, 24, 32, 0.78);
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  .benefit__icon {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    flex: 0 0 auto;
+    color: var(--accent);
+    background: rgba(17, 17, 17, 0.08);
+    border: 1px solid rgba(17, 17, 17, 0.12);
+    border-radius: 12px;
+  }
+
+  .benefit__icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .benefit__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+  }
+
+  .benefit__text strong {
+    font-size: 0.78rem;
+  }
+
+  .benefit__text small {
+    font-size: 0.7rem;
+    color: var(--muted);
+    font-weight: 600;
   }
 
   .hero__actions {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     align-items: stretch;
+    margin-top: 8px;
   }
 
   .hero__actions .btn {
     width: 100%;
     justify-content: center;
-    min-height: 48px;
-    padding: 12px 14px;
-    font-size: 0.95rem;
-    border-radius: 16px;
+    min-height: 46px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    border-radius: 14px;
   }
 
   .page--home .hero__actions .btn--solid {
@@ -5910,7 +5970,7 @@ body {
   .hero__visual {
     order: 2;
     min-height: auto;
-    padding: 0 14px 16px;
+    padding: 0 12px 12px;
     align-items: center;
     justify-content: center;
   }
@@ -5934,7 +5994,7 @@ body {
 
   .footer__columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 14px;
   }
 
   .footer__group {
@@ -5952,50 +6012,64 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 480px) {
   body {
-    --topbar-height: 56px;
-    padding-top: 56px;
+    --topbar-height: 54px;
+    padding-top: 54px;
   }
 
   .topbar {
-    padding: 8px 12px;
-    gap: 8px;
-    min-height: 54px;
+    padding: 8px 10px;
+    gap: 6px;
+    min-height: 52px;
   }
 
   .topbar__actions {
     right: 10px;
-    top: 50%;
   }
 
   .page--home .nav {
-    gap: 8px;
+    gap: 6px;
   }
 
   .page--home .nav__link {
-    font-size: 0.78rem;
-    padding: 8px 6px;
+    font-size: 0.7rem;
+    padding: 6px 4px;
+  }
+
+  .hero {
+    margin-top: -8px;
+  }
+
+  .hero__copy {
+    padding: 12px 10px 8px;
+    gap: 8px;
   }
 
   .hero h1 {
-    font-size: clamp(2rem, 9vw, 2.6rem);
+    font-size: clamp(1.6rem, 8vw, 2.2rem);
   }
 
   .hero__lead {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
   }
 
   .hero__actions .btn {
-    min-height: 46px;
-    padding: 12px 12px;
+    min-height: 44px;
+    padding: 10px 10px;
   }
 
   .footer__columns {
     grid-template-columns: 1fr;
+  }
+
+  .benefit__icon {
+    width: 28px;
+    height: 28px;
   }
 }
 
