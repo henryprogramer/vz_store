@@ -3737,7 +3737,7 @@
   function syncSidebarMetrics() {
     const topbar = document.querySelector(".topbar");
     const height = topbar ? Math.ceil(topbar.getBoundingClientRect().height) : 0;
-    document.documentElement.style.setProperty("--topbar-height", `${height || 88}px`);
+    document.documentElement.style.setProperty("--topbar-height", `${height || 44}px`);
   }
 
   function syncSidebarToggleControls(open = document.body.classList.contains("is-sidebar-open")) {

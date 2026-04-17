@@ -20,7 +20,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--topbar-height, 88px);
+  scroll-padding-top: var(--topbar-height, 44px);
 }
 
 body {
@@ -30,7 +30,7 @@ body {
   color: var(--text);
   overflow-x: hidden;
   background: var(--cream);
-  padding-top: var(--topbar-height, 88px);
+  padding-top: var(--topbar-height, 44px);
 }
 
 body.is-cart-dialog-open,
@@ -152,6 +152,72 @@ a {
 .topbar__actions [data-topbar-profile-slot] span:not(.btn__icon),
 .topbar__actions .profile-trigger .profile-trigger__label {
   display: none !important;
+}
+
+/* Compact header override:
+   The HTML templates ship their own topbar styles, so we tighten the shared
+   header here with higher-priority rules to keep the public and internal pages
+   visually consistent. */
+.topbar {
+  gap: 6px clamp(8px, 1vw, 14px) !important;
+  padding: 6px clamp(12px, 2.5vw, 32px) !important;
+}
+
+.topbar .brand {
+  gap: 6px !important;
+}
+
+.topbar .brand__logo {
+  width: 72px !important;
+}
+
+.topbar .brand__mark {
+  width: 12px !important;
+  height: 12px !important;
+}
+
+.topbar .brand__name {
+  font-size: 0.86rem !important;
+}
+
+.topbar .nav {
+  gap: 12px !important;
+}
+
+.topbar .nav__link {
+  padding: 4px 6px !important;
+  font-size: 0.82rem !important;
+}
+
+.topbar .topbar__actions {
+  gap: 6px !important;
+}
+
+.topbar .topbar__actions .btn {
+  padding: 7px 11px !important;
+  font-size: 0.8rem !important;
+  border-radius: 10px !important;
+}
+
+.topbar .btn__icon {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.topbar .menu-toggle,
+.topbar .topbar__menu-toggle {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 10px !important;
+}
+
+.topbar .topbar__actions [data-topbar-profile-slot],
+.topbar .topbar__actions .profile-trigger {
+  flex: 0 0 34px !important;
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  min-height: 34px !important;
 }
 
 
@@ -695,7 +761,7 @@ a {
 
 .catalog-cart-panel {
   position: sticky;
-  top: calc(var(--topbar-height, 88px) + 16px);
+  top: calc(var(--topbar-height, 44px) + 16px);
   align-self: start;
   min-width: 0;
 }
@@ -1832,7 +1898,7 @@ body.is-sidebar-open .portal-layout__content {
 
 .portal-layout__backdrop {
   position: fixed;
-  inset: calc(var(--topbar-height, 88px) - 1px) 0 0 0;
+  inset: calc(var(--topbar-height, 44px) - 1px) 0 0 0;
   z-index: 35;
   border: 0;
   background: rgba(13, 15, 20, 0.42);
@@ -1874,7 +1940,7 @@ body.is-sidebar-open .page--access .main {
 .portal-sidebar {
   position: fixed;
   left: 0;
-  top: calc(var(--topbar-height, 88px) - 1px);
+  top: calc(var(--topbar-height, 44px) - 1px);
   bottom: 0;
   width: var(--portal-sidebar-width);
   display: grid;
@@ -3477,7 +3543,7 @@ body.is-sidebar-open .portal-sidebar {
 
 .profile-popover {
   position: fixed;
-  top: calc(var(--topbar-height, 88px) + 8px);
+  top: calc(var(--topbar-height, 44px) + 8px);
   right: clamp(14px, 3vw, 44px);
   width: min(368px, calc(100vw - 28px));
   z-index: 140;
@@ -4833,15 +4899,15 @@ body.is-lightbox-open {
   }
 
   .topbar__actions .btn {
-    padding: 8px 12px;
-    font-size: 0.85rem;
+    padding: 6px 10px;
+    font-size: 0.8rem;
     border-radius: 10px;
   }
 
   .topbar__menu-toggle {
-    width: 36px;
-    height: 36px;
-    border-radius: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
   }
 
   .catalog-carousel__page {
@@ -5709,39 +5775,39 @@ body {
 /* Mobile Extra Small - Melhorias para dispositivos muito pequenos */
 @media (max-width: 480px) {
   body {
-    padding-top: 70px;
-    --topbar-height: 70px;
+    padding-top: 44px;
+    --topbar-height: 44px;
   }
 
   .topbar {
-    padding: 11px 12px;
-    gap: 10px;
+    padding: 6px 10px;
+    gap: 6px;
   }
 
   .topbar__brand-group {
-    gap: 6px;
+    gap: 4px;
   }
 
   .brand {
-    font-size: 0.88rem;
-    gap: 6px;
+    font-size: 0.82rem;
+    gap: 4px;
   }
 
   .brand__mark {
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
   }
 
   .nav {
     order: 3;
     width: 100%;
-    gap: 14px;
+    gap: 8px;
     flex: 0 0 100%;
-    font-size: 0.82rem;
+    font-size: 0.76rem;
   }
 
   .nav__link {
-    font-size: 0.82rem;
+    font-size: 0.76rem;
     font-weight: 600;
   }
 
@@ -5750,14 +5816,14 @@ body {
   }
 
   .topbar__actions .btn {
-    padding: 8px 10px;
-    font-size: 0.8rem;
+    padding: 5px 8px;
+    font-size: 0.76rem;
     border-radius: 10px;
   }
 
   .topbar__actions .btn__icon {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
   }
 
   .hero {
@@ -5872,17 +5938,17 @@ body {
 /* Ajustes adicionais para responsividade móvel */
 @media (max-width: 768px) {
   body {
-    --topbar-height: 62px;
-    padding-top: 62px;
+    --topbar-height: 44px;
+    padding-top: 44px;
   }
 
   .topbar {
     position: relative;
     justify-content: center;
     align-items: center;
-    padding: 10px 14px;
-    gap: 10px;
-    min-height: 60px;
+    padding: 6px 10px;
+    gap: 6px;
+    min-height: 44px;
     background: rgba(255, 255, 255, 0.98);
   }
 
@@ -5892,25 +5958,25 @@ body {
   }
 
   .brand {
-    font-size: 1.1rem;
-    gap: 10px;
+    font-size: 0.92rem;
+    gap: 6px;
     font-weight: 800;
   }
 
   .brand__mark {
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
   }
 
   .topbar__actions {
     order: 0;
     position: absolute;
     top: 50%;
-    right: 14px;
+    right: 10px;
     transform: translateY(-50%);
     width: auto;
     justify-content: flex-end;
-    gap: 8px;
+    gap: 6px;
     padding: 0;
     background: transparent;
   }
@@ -5920,11 +5986,11 @@ body {
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    flex: 0 0 42px;
-    width: 42px;
-    height: 42px;
-    min-width: 42px;
-    min-height: 42px;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    min-height: 34px;
     padding: 0;
     font-size: 0;
     border-radius: 50%;
@@ -5952,15 +6018,15 @@ body {
     order: 2;
     width: 100%;
     justify-content: center;
-    gap: 10px;
-    margin-top: 8px;
-    padding-bottom: 6px;
+    gap: 8px;
+    margin-top: 4px;
+    padding-bottom: 4px;
   }
 
   .nav__link {
     flex: 1 1 auto;
-    padding: 8px 10px;
-    font-size: 0.76rem;
+    padding: 5px 8px;
+    font-size: 0.72rem;
     font-weight: 700;
     text-align: center;
     white-space: nowrap;
@@ -6142,36 +6208,36 @@ body {
 
 @media (max-width: 480px) {
   body {
-    --topbar-height: 58px;
-    padding-top: 58px;
+    --topbar-height: 40px;
+    padding-top: 40px;
   }
 
   .topbar {
-    padding: 9px 12px;
-    gap: 8px;
-    min-height: 56px;
+    padding: 5px 8px;
+    gap: 4px;
+    min-height: 40px;
   }
 
   .brand {
-    font-size: 1rem;
+    font-size: 0.88rem;
   }
 
   .brand__mark {
-    width: 28px;
-    height: 28px;
+    width: 18px;
+    height: 18px;
   }
 
   .topbar__actions {
-    right: 12px;
+    right: 8px;
   }
 
   .topbar__actions [data-topbar-profile-slot],
   .topbar__actions .profile-trigger {
-    flex: 0 0 42px;
-    width: 42px;
-    height: 42px;
-    min-width: 42px;
-    min-height: 42px;
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
   }
 
   .topbar__actions [data-topbar-profile-slot] span:not(.btn__icon),
@@ -6180,13 +6246,13 @@ body {
   }
 
   .nav {
-    gap: 8px;
-    margin-top: 6px;
+    gap: 6px;
+    margin-top: 4px;
   }
 
   .nav__link {
-    font-size: 0.7rem;
-    padding: 6px 8px;
+    font-size: 0.68rem;
+    padding: 4px 6px;
   }
 
   .hero {
