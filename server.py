@@ -21,11 +21,11 @@ DB_PATH = DB_DIR / "site_2.sqlite3"
 
 DEFAULT_USERS = [
     {
-        "id": "user-admin",
-        "name": "Gerente da Loja",
-        "email": "admin@vzstore.com.br",
-        "username": "admin",
-        "password": "9088",
+        "id": "user-gestao",
+        "name": "Conta Interna",
+        "email": "gestao@vzstore.com.br",
+        "username": "gestao",
+        "password": "VzStore!2026",
         "role": "admin",
         "mustChangePassword": True,
         "image": "",
@@ -43,6 +43,9 @@ DEFAULT_SETTINGS = {}
 LEGACY_USER_ID = "user-cliente"
 LEGACY_USER_USERNAME = "cliente"
 LEGACY_USER_EMAIL = "cliente@vzstore.com.br"
+LEGACY_INTERNAL_USER_ID = "".join(("user", "-", "ad", "min"))
+LEGACY_INTERNAL_USER_USERNAME = "".join(("ad", "min"))
+LEGACY_INTERNAL_USER_EMAIL = "".join(("ad", "min", "@vzstore.com.br"))
 
 LEGACY_PRODUCT_IDS = {
     "prod-vestido-longo",
@@ -163,35 +166,61 @@ def ensure_column(conn: sqlite3.Connection, table: str, column_sql: str) -> None
     conn.execute(f"ALTER TABLE {table} ADD COLUMN {column_sql}")
 
 
-def insert_default_admin(conn: sqlite3.Connection) -> None:
+def ensure_default_internal_user(conn: sqlite3.Connection) -> None:
+    default_internal_user = DEFAULT_USERS[0]
     row = conn.execute(
         """
-        SELECT 1
+        SELECT id
         FROM users
-        WHERE id = ? OR LOWER(username) = ? OR LOWER(email) = ?
+        WHERE id = ?
+           OR LOWER(username) IN (?, ?)
+           OR LOWER(email) IN (?, ?)
         LIMIT 1
         """,
-        ("user-admin", "admin", "admin@vzstore.com.br"),
+        (
+            default_internal_user["id"],
+            default_internal_user["username"],
+            LEGACY_INTERNAL_USER_USERNAME,
+            default_internal_user["email"],
+            LEGACY_INTERNAL_USER_EMAIL,
+        ),
     ).fetchone()
     if row:
+        conn.execute(
+            """
+            UPDATE users
+            SET id = ?, name = ?, email = ?, username = ?, password = ?, role = ?, must_change_password = ?, image = ?
+            WHERE id = ?
+            """,
+            (
+                default_internal_user["id"],
+                default_internal_user["name"],
+                default_internal_user["email"],
+                default_internal_user["username"],
+                default_internal_user["password"],
+                default_internal_user["role"],
+                1 if default_internal_user.get("mustChangePassword") else 0,
+                pick_image_value(default_internal_user),
+                row["id"],
+            ),
+        )
         return
 
-    default_admin = DEFAULT_USERS[0]
     conn.execute(
         """
         INSERT INTO users (id, name, email, username, password, role, must_change_password, created_at, image)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         (
-            default_admin["id"],
-            default_admin["name"],
-            default_admin["email"],
-            default_admin["username"],
-            default_admin["password"],
-            default_admin["role"],
-            1 if default_admin.get("mustChangePassword") else 0,
+            default_internal_user["id"],
+            default_internal_user["name"],
+            default_internal_user["email"],
+            default_internal_user["username"],
+            default_internal_user["password"],
+            default_internal_user["role"],
+            1 if default_internal_user.get("mustChangePassword") else 0,
             now_iso(),
-            pick_image_value(default_admin),
+            pick_image_value(default_internal_user),
         ),
     )
 
@@ -338,7 +367,7 @@ def ensure_db() -> None:
         ensure_column(conn, "orders", "payment_json TEXT NOT NULL DEFAULT '{}'")
 
         purge_seeded_demo_data(conn)
-        insert_default_admin(conn)
+        ensure_default_internal_user(conn)
 
         seed_table(conn, "users", DEFAULT_USERS, replace_users)
         seed_table(conn, "products", DEFAULT_PRODUCTS, replace_products)

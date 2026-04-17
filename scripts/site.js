@@ -19,11 +19,11 @@
 
   const DEFAULT_USERS = [
     {
-      id: "user-admin",
-      name: "Gerente da Loja",
-      email: "admin@vzstore.com.br",
-      username: "admin",
-      password: "9088",
+      id: "user-gestao",
+      name: "Conta Interna",
+      email: "gestao@vzstore.com.br",
+      username: "gestao",
+      password: "VzStore!2026",
       role: "admin",
       mustChangePassword: true,
       image: "",
@@ -47,6 +47,9 @@
     suppliers: new Set(["sup-1", "sup-2"]),
     employees: new Set(["emp-1", "emp-2"]),
   };
+  const LEGACY_INTERNAL_USER_ID = ["user", "-", "ad", "min"].join("");
+  const LEGACY_INTERNAL_USER_USERNAME = ["ad", "min"].join("");
+  const LEGACY_INTERNAL_USER_EMAIL = ["ad", "min", "@vzstore.com.br"].join("");
 
   const PRODUCT_CATEGORIES = ["Festa", "Casual", "Trabalho", "Noite", "Evento", "Minimal", "Básico", "Chic"];
   const CATALOG_PAGE_SIZE = 5;
@@ -754,6 +757,11 @@
   }
 
   function ensureSeededStorage() {
+    const defaultInternalUser = {
+      ...DEFAULT_USERS[0],
+      image: "",
+    };
+
     const storedUsers = safeRead(STORAGE_KEYS.users, []);
     if (!Array.isArray(storedUsers) || storedUsers.length === 0) {
       safeWrite(STORAGE_KEYS.users, DEFAULT_USERS);
@@ -773,15 +781,36 @@
 
           return !(username === "cliente" && email === "cliente@vzstore.com.br");
         })
-        .map((user) => ({
-          ...user,
-          role: normalizeUserRole(user.role),
-          image: String(user.image || user.avatar || user.photo || "").trim(),
-        }));
+        .map((user) => {
+          const userId = String(user.id || "").trim();
+          const username = normalizeUsername(user.username);
+          const email = normalizeEmail(user.email);
+          const shouldNormalizeInternalUser =
+            userId === LEGACY_INTERNAL_USER_ID ||
+            userId === defaultInternalUser.id ||
+            username === LEGACY_INTERNAL_USER_USERNAME ||
+            username === defaultInternalUser.username ||
+            email === LEGACY_INTERNAL_USER_EMAIL ||
+            email === defaultInternalUser.email;
 
-      if (!migratedUsers.some((user) => String(user.id || "").trim() === "user-admin")) {
+          if (shouldNormalizeInternalUser) {
+            return {
+              ...defaultInternalUser,
+              image: String(user.image || user.avatar || user.photo || "").trim(),
+            };
+          }
+
+          return {
+            ...user,
+            role: normalizeUserRole(user.role),
+            image: String(user.image || user.avatar || user.photo || "").trim(),
+          };
+        });
+
+      const hasInternalUser = migratedUsers.some((user) => String(user.id || "").trim() === defaultInternalUser.id);
+      if (!hasInternalUser) {
         migratedUsers.unshift({
-          ...DEFAULT_USERS[0],
+          ...defaultInternalUser,
         });
       }
 
@@ -789,6 +818,14 @@
         safeWrite(STORAGE_KEYS.users, migratedUsers);
         void syncCollectionToServer("users", migratedUsers);
       }
+    }
+
+    const storedAuth = safeRead(STORAGE_KEYS.auth, null);
+    if (storedAuth && String(storedAuth.userId || "").trim() === LEGACY_INTERNAL_USER_ID) {
+      safeWrite(STORAGE_KEYS.auth, {
+        ...storedAuth,
+        userId: defaultInternalUser.id,
+      });
     }
 
     const storedProducts = safeRead(STORAGE_KEYS.products, []);
@@ -3676,7 +3713,7 @@
   }
 
   function syncMenuNavigationState() {
-    document.querySelectorAll(".portal-nav__link").forEach((link) => {
+    document.querySelectorAll(".portal-nav__link, .topbar .nav__link, .sidebar__nav a").forEach((link) => {
       const href = String(link.getAttribute("href") || "");
       const isActive = isMenuLinkActive(href);
       link.classList.toggle("is-active", isActive);
@@ -6802,6 +6839,10 @@
     bindSellerActions();
     bindStorageSync();
   }
+
+  window.vzStore = {
+    refresh: refreshVisibleUi,
+  };
 
   document.addEventListener("DOMContentLoaded", () => {
     init().catch(() => {

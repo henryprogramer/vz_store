@@ -27,9 +27,9 @@ A VzSTORE é uma plataforma online focada em:
 - Acompanhar pedidos
 - Histórico de compras
 
-### Vendedora (Admin)
+### Vendedora
 - Painel de operações
-- Gestão de produt  os
+- Gestão de produtos
 - Controle de pedidos
 - Cadastro de usuários
 
