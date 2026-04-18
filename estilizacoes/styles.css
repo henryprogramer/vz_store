@@ -2572,8 +2572,12 @@ body.is-sidebar-open .portal-sidebar {
 }
 
 .profile-avatar--photo {
-  background-size: cover;
+  background-color: transparent;
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
+  border: 0;
+  box-shadow: none;
   color: transparent;
 }
 
@@ -6310,4 +6314,34 @@ canvas,
 video {
   max-width: 100%;
   height: auto;
+}
+
+/* Avatares de perfil: evitar o bloco quadrado que envolve a foto. */
+.profile-trigger {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.profile-trigger.is-active,
+.profile-trigger[aria-expanded="true"] {
+  color: inherit !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.profile-trigger.is-active .profile-avatar,
+.profile-trigger[aria-expanded="true"] .profile-avatar {
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
