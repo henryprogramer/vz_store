@@ -3576,14 +3576,51 @@
     const avatarSource = getUserAvatarSource(user);
     const avatarLabel = userAvatarLabel(user);
     const style = avatarSource
-      ? `style="background-image:url('${escapeAttr(avatarSource)}');"`
+      ? ""
       : `style="--avatar-hue:${avatarSeedFromString(user?.name || user?.username || user?.id || avatarLabel)};"`;
 
     return `
       <span class="profile-avatar profile-avatar--${escapeAttr(size)}${avatarSource ? " profile-avatar--photo" : ""}" ${style} aria-hidden="true">
-        ${avatarSource ? "" : escapeHtml(avatarLabel)}
+        ${avatarSource ? `<img class="profile-avatar__image" src="${escapeAttr(avatarSource)}" alt="" decoding="async" />` : escapeHtml(avatarLabel)}
       </span>
     `;
+  }
+
+  function getUserProfileSummary(currentUser, orders, cartState = null) {
+    const currentOrders = Array.isArray(orders) ? orders : [];
+    const isClientUser = isClient(currentUser);
+    const roleLabel = userRoleLabel(currentUser);
+    const resolvedCartState = isClientUser ? cartState || cartSummary(currentUser.id) : null;
+    const cartCount = isClientUser ? cartQuantityCount(resolvedCartState) : 0;
+    const pendingCount = isClientUser
+      ? getPendingOrderCount(currentOrders, currentUser.id)
+      : getPendingOrderCount(currentOrders);
+    const totalOrders = isClientUser
+      ? currentOrders.filter((order) => order?.userId === currentUser.id).length
+      : currentOrders.length;
+    const activeProducts = getProducts().filter((product) => product?.active !== false).length;
+    const summaryRows = isClientUser
+      ? [
+          { value: cartCount, label: "Itens no carrinho" },
+          { value: pendingCount, label: "Pedidos em andamento" },
+          { value: totalOrders, label: "Pedidos totais" },
+        ]
+      : [
+          { value: pendingCount, label: "Pedidos pendentes" },
+          { value: activeProducts, label: "Produtos ativos" },
+          { value: totalOrders, label: "Pedidos recebidos" },
+        ];
+
+    return {
+      isClientUser,
+      roleLabel,
+      cartCount,
+      pendingCount,
+      totalOrders,
+      activeProducts,
+      summaryRows,
+      cartState: resolvedCartState,
+    };
   }
 
   function getRecordImageSource(record) {
@@ -3690,10 +3727,6 @@
 
   function topbarCheckoutHref() {
     return pageLink("checkout.html");
-  }
-
-  function topbarOrdersHref() {
-    return pageLink("cliente.html", "meus-pedidos");
   }
 
   function isMenuLinkActive(href) {
@@ -4351,9 +4384,7 @@
   }
 
   function renderProfilePopover(currentUser, cartState, orders) {
-    const currentOrders = Array.isArray(orders) ? orders : [];
-    const isClientUser = isClient(currentUser);
-    const roleLabel = userRoleLabel(currentUser);
+    const summary = getUserProfileSummary(currentUser, orders, cartState);
     const currentPage = currentPageName();
     const profileTargetHref = isAdmin(currentUser)
       ? (currentPage === "vendedora.html" ? "#pedidos" : "vendedora.html")
@@ -4364,25 +4395,6 @@
     const profileTargetIcon = isAdmin(currentUser)
       ? (currentPage === "vendedora.html" ? "orders" : "dashboard")
       : (currentPage === "cliente.html" ? "cart" : "catalog");
-    const cartCount = isClientUser ? cartQuantityCount(cartState) : 0;
-    const pendingCount = isClientUser
-      ? getPendingOrderCount(currentOrders, currentUser.id)
-      : getPendingOrderCount(currentOrders);
-    const totalOrders = isClientUser
-      ? currentOrders.filter((order) => order?.userId === currentUser.id).length
-      : currentOrders.length;
-    const activeProducts = getProducts().filter((product) => product?.active !== false).length;
-    const summaryRows = isClientUser
-      ? [
-          { value: cartCount, label: "Itens no carrinho" },
-          { value: pendingCount, label: "Pedidos em andamento" },
-          { value: totalOrders, label: "Pedidos totais" },
-        ]
-      : [
-          { value: pendingCount, label: "Pedidos pendentes" },
-          { value: activeProducts, label: "Produtos ativos" },
-          { value: totalOrders, label: "Pedidos recebidos" },
-        ];
 
     return `
       <div class="profile-popover" id="topbar-profile-popover" role="dialog" aria-modal="false" aria-labelledby="topbar-profile-popover-title" data-profile-popover${document.body.classList.contains("is-profile-open") ? "" : " hidden"}>
@@ -4393,7 +4405,7 @@
               <div class="profile-popover__copy">
                 <p class="section__eyebrow"><span class="section__dot" aria-hidden="true"></span>Perfil</p>
                 <h3 id="topbar-profile-popover-title">${escapeHtml(currentUser.name)}</h3>
-                <span>${escapeHtml(roleLabel)} • ${escapeHtml(currentUser.email || currentUser.username || "Conta ativa")}</span>
+                <span>${escapeHtml(summary.roleLabel)} • ${escapeHtml(currentUser.email || currentUser.username || "Conta ativa")}</span>
               </div>
             </div>
             <button type="button" class="profile-popover__close" data-profile-close aria-label="Fechar perfil">
@@ -4405,11 +4417,11 @@
           </div>
           <div class="profile-popover__meta">
             <span><strong>${escapeHtml(currentUser.username || "sem login")}</strong> login</span>
-            <span><strong>${escapeHtml(roleLabel)}</strong> perfil</span>
-            <span><strong>${escapeHtml(isClientUser ? cartCount : activeProducts)}</strong> ${escapeHtml(isClientUser ? "itens" : "produtos")}</span>
+            <span><strong>${escapeHtml(summary.roleLabel)}</strong> perfil</span>
+            <span><strong>${escapeHtml(summary.isClientUser ? summary.cartCount : summary.activeProducts)}</strong> ${escapeHtml(summary.isClientUser ? "itens" : "produtos")}</span>
           </div>
           <div class="sidebar-card__stats profile-popover__stats">
-            ${summaryRows
+            ${summary.summaryRows
               .map(
                 (row) => `
                   <span><strong>${escapeHtml(row.value)}</strong> ${escapeHtml(row.label)}</span>
@@ -4430,6 +4442,87 @@
         </article>
       </div>
     `;
+  }
+
+  function renderSidebarProfileCard(currentUser, orders) {
+    if (!currentUser) {
+      return "";
+    }
+
+    const summary = getUserProfileSummary(currentUser, orders);
+    const profileOpen = document.body.classList.contains("is-profile-open");
+
+    return `
+      <article class="sidebar-card sidebar-card--accent sidebar-profile">
+        <div class="sidebar-card__head sidebar-profile__head">
+          <div class="sidebar-profile__identity">
+            ${renderUserAvatar(currentUser, "lg")}
+            <div class="sidebar-profile__copy">
+              <p class="section__eyebrow"><span class="section__dot" aria-hidden="true"></span>Perfil</p>
+              <h3>${escapeHtml(currentUser.name)}</h3>
+              <span>${escapeHtml(summary.roleLabel)} • ${escapeHtml(currentUser.email || currentUser.username || "Conta ativa")}</span>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-profile__stats">
+          ${summary.summaryRows
+            .map(
+              (row) => `
+                <span><strong>${escapeHtml(row.value)}</strong> ${escapeHtml(row.label)}</span>
+              `,
+            )
+            .join("")}
+        </div>
+        <div class="sidebar-card__actions">
+          <button
+            type="button"
+            class="btn btn--solid"
+            data-profile-toggle="topbar-profile"
+            aria-controls="topbar-profile-popover"
+            aria-haspopup="dialog"
+            aria-expanded="${profileOpen ? "true" : "false"}"
+            aria-label="Abrir perfil de ${escapeAttr(currentUser.name)}"
+          >
+            ${renderButtonIcon("user")}
+            <span>Abrir perfil</span>
+          </button>
+          <button type="button" class="btn btn--light" data-action="logout">
+            ${renderButtonIcon("logout")}
+            <span>Sair</span>
+          </button>
+        </div>
+      </article>
+    `;
+  }
+
+  function syncSidebarProfile(currentUser, orders) {
+    document.querySelectorAll(".sidebar, .portal-sidebar").forEach((sidebar) => {
+      let profileSlot = sidebar.querySelector("[data-sidebar-profile-slot]");
+
+      if (!currentUser) {
+        profileSlot?.remove();
+        return;
+      }
+
+      if (!profileSlot) {
+        profileSlot = document.createElement("div");
+        profileSlot.className = "sidebar__profile";
+        profileSlot.setAttribute("data-sidebar-profile-slot", "1");
+
+        const header = sidebar.querySelector(".sidebar__header");
+        if (header) {
+          header.insertAdjacentElement("afterend", profileSlot);
+        } else {
+          sidebar.prepend(profileSlot);
+        }
+      }
+
+      if (!profileSlot) {
+        return;
+      }
+
+      profileSlot.innerHTML = renderSidebarProfileCard(currentUser, orders);
+    });
   }
 
   function renderClientSidebar(currentUser, cartState, orders) {
@@ -5815,7 +5908,7 @@
         }
 
         profileTrigger.innerHTML = `
-          ${renderUserAvatar(currentUser, "sm")}
+          ${renderUserAvatar(currentUser, "md")}
           <span class="profile-trigger__label">Perfil</span>
         `;
       } else if (accessLink) {
@@ -5840,7 +5933,6 @@
       }
 
       if (currentUser) {
-        const pendingCount = getPendingOrderCount(orders, currentUser.id);
         let cartLink = actions.querySelector("[data-topbar-cart]");
         if (cartLink && cartLink.tagName !== "BUTTON") {
           const replacement = document.createElement("button");
@@ -5903,33 +5995,7 @@
           `;
         }
 
-        if (isClient(currentUser)) {
-          let ordersLink = actions.querySelector("[data-topbar-orders]");
-          if (!ordersLink) {
-            ordersLink = document.createElement("a");
-            ordersLink.className = "btn btn--light topbar-orders";
-            ordersLink.setAttribute("data-auth-injected", "1");
-            ordersLink.setAttribute("data-topbar-orders", "1");
-            actions.insertBefore(ordersLink, cartLink);
-          }
-
-          ordersLink.href = topbarOrdersHref();
-          ordersLink.setAttribute(
-            "aria-label",
-            pendingCount > 0
-              ? `Abrir pedidos com ${pendingCount} pedido${pendingCount === 1 ? "" : "s"} pendente${pendingCount === 1 ? "" : "s"}`
-              : "Abrir meus pedidos",
-          );
-          ordersLink.innerHTML = `
-            <span class="topbar-action__icon" aria-hidden="true">
-              ${renderButtonIcon("orders")}
-            </span>
-            <span>Pedidos</span>
-            ${pendingCount > 0 ? `<span class="topbar-action__badge" aria-hidden="true">${escapeHtml(pendingCount)}</span>` : ""}
-          `;
-        } else {
-          actions.querySelectorAll("[data-topbar-orders]").forEach((node) => node.remove());
-        }
+        actions.querySelectorAll("[data-topbar-orders]").forEach((node) => node.remove());
       } else {
         actions.querySelectorAll("[data-topbar-cart]").forEach((node) => node.remove());
         actions.querySelectorAll("[data-topbar-checkout]").forEach((node) => node.remove());
@@ -5941,6 +6007,7 @@
       }
     });
 
+    syncSidebarProfile(currentUser, orders);
     syncProfilePopoverState();
   }
 

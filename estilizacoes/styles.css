@@ -341,6 +341,20 @@ a {
   color: var(--accent);
 }
 
+.sidebar__profile {
+  display: none;
+  width: 100%;
+  margin: 4px 0 14px;
+}
+
+.sidebar__profile:not(:empty) {
+  display: grid;
+}
+
+.sidebar__profile > * {
+  width: 100%;
+}
+
 .topbar__actions {
   display: flex;
   align-items: center;
@@ -2532,6 +2546,7 @@ body.is-sidebar-open .portal-sidebar {
 }
 
 .profile-avatar {
+  position: relative;
   display: inline-grid;
   place-items: center;
   flex: 0 0 auto;
@@ -2549,8 +2564,18 @@ body.is-sidebar-open .portal-sidebar {
   color: var(--accent-strong);
   font-size: 0.8rem;
   font-weight: 900;
+  line-height: 1;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.profile-avatar__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
 }
 
 .profile-avatar--sm {
@@ -2572,12 +2597,7 @@ body.is-sidebar-open .portal-sidebar {
 }
 
 .profile-avatar--photo {
-  background-color: transparent;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  border: 0;
-  box-shadow: none;
+  background: rgba(255, 255, 255, 0.94);
   color: transparent;
 }
 
@@ -6317,12 +6337,21 @@ video {
 }
 
 /* Avatares de perfil: evitar o bloco quadrado que envolve a foto. */
-.profile-trigger {
+.topbar .topbar__actions,
+.topbar__actions {
+  gap: clamp(10px, 1vw, 14px) !important;
+}
+
+.topbar .topbar__actions [data-topbar-profile-slot],
+.topbar .topbar__actions .profile-trigger,
+.topbar__actions [data-topbar-profile-slot],
+.topbar__actions .profile-trigger {
   flex: 0 0 auto !important;
   width: auto !important;
   height: auto !important;
   min-width: 0 !important;
   min-height: 0 !important;
+  margin-left: clamp(2px, 0.5vw, 8px) !important;
   padding: 0 !important;
   gap: 0 !important;
   border: 0 !important;
@@ -6332,16 +6361,37 @@ video {
   overflow: visible !important;
 }
 
-.profile-trigger.is-active,
-.profile-trigger[aria-expanded="true"] {
+.topbar .topbar__actions [data-topbar-profile-slot] .profile-avatar,
+.topbar .topbar__actions .profile-trigger .profile-avatar,
+.topbar__actions [data-topbar-profile-slot] .profile-avatar,
+.topbar__actions .profile-trigger .profile-avatar {
+  width: 42px !important;
+  height: 42px !important;
+}
+
+.topbar .topbar__actions .profile-trigger.is-active,
+.topbar .topbar__actions .profile-trigger[aria-expanded="true"],
+.topbar__actions .profile-trigger.is-active,
+.topbar__actions .profile-trigger[aria-expanded="true"] {
   color: inherit !important;
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
 }
 
-.profile-trigger.is-active .profile-avatar,
-.profile-trigger[aria-expanded="true"] .profile-avatar {
-  border-color: transparent !important;
-  box-shadow: none !important;
+.topbar .topbar__actions .profile-trigger.is-active .profile-avatar,
+.topbar .topbar__actions .profile-trigger[aria-expanded="true"] .profile-avatar,
+.topbar__actions .profile-trigger.is-active .profile-avatar,
+.topbar__actions .profile-trigger[aria-expanded="true"] .profile-avatar {
+  border-color: rgba(17, 17, 17, 0.22) !important;
+}
+
+@media (max-width: 820px) {
+  .topbar .topbar__actions [data-topbar-profile-slot] .profile-avatar,
+  .topbar .topbar__actions .profile-trigger .profile-avatar,
+  .topbar__actions [data-topbar-profile-slot] .profile-avatar,
+  .topbar__actions .profile-trigger .profile-avatar {
+    width: 36px !important;
+    height: 36px !important;
+  }
 }
